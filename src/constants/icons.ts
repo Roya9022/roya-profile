@@ -25,3 +25,7 @@ export const INITIAL_ICON_POSITIONS: Record<string, Position> = {
   paint: { x: 220, y: 320 },
   contact: { x: 220, y: 440 },
 };
+
+export const WIN_OUTSET =
+  'border-2 border-t-white border-l-white border-r-gray-600 border-b-gray-600 shadow-[1px_1px_0_rgba(0,0,0,1)]';
+export const WIN_INSET = 'border-2 border-t-gray-600 border-l-gray-600 border-r-white border-b-white';
