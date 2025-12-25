@@ -2,7 +2,7 @@ import { WIN_OUTSET } from '../../../../constants/icons';
 
 interface TitleBarButtonProps {
   Icon: React.ElementType;
-  onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
 }
 const TitleBarButton: React.FC<TitleBarButtonProps> = ({ Icon, onClick, className = '' }) => {

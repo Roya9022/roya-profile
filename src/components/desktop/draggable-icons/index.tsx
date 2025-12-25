@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import type { Position } from '../../../types';
 
 interface DraggableIconProps {
@@ -11,7 +11,8 @@ interface DraggableIconProps {
 
 const DraggableIcon: React.FC<DraggableIconProps> = ({ imageSrc, label, onClick, position, onDrag }) => {
   const [isDragging, setIsDragging] = useState(false);
-  const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+  const dragOffset = useRef({ x: 0, y: 0 });
+  const startPos = useRef({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
@@ -22,20 +23,33 @@ const DraggableIcon: React.FC<DraggableIconProps> = ({ imageSrc, label, onClick,
   }, []);
 
   const handlePointerDown = (e: React.PointerEvent) => {
+    startPos.current = { x: e.clientX, y: e.clientY };
     if (isMobile) return;
     setIsDragging(true);
-    setDragOffset({ x: e.clientX - position.x, y: e.clientY - position.y });
+    dragOffset.current = { x: e.clientX - position.x, y: e.clientY - position.y };
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   };
 
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!isDragging) return;
-    onDrag({ x: e.clientX - dragOffset.x, y: e.clientY - dragOffset.y });
+    onDrag({ x: e.clientX - dragOffset.current.x, y: e.clientY - dragOffset.current.y });
   };
 
   const handlePointerUp = (e: React.PointerEvent) => {
-    setIsDragging(false);
-    (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+    if (!isDragging && !isMobile) {
+      onClick();
+    }
+
+    if (isDragging) {
+      setIsDragging(false);
+      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
+      const distance = Math.sqrt(
+        Math.pow(e.clientX - startPos.current.x, 2) + Math.pow(e.clientY - startPos.current.y, 2)
+      );
+      if (distance < 5) {
+        onClick();
+      }
+    }
   };
 
   return (

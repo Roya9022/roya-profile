@@ -48,7 +48,7 @@ const IntroNotepad = () => {
     e.currentTarget.releasePointerCapture(e.pointerId);
   };
 
-  const lines = ['Hello, World!', 'My name is Roya Azemi', "and I'm a Front-End Software Engineer!"];
+  const lines = ['Hello, World!', 'Welcome Stranger!', 'My name is Roya Azemi', "and I'm a Front-End Software Engineer!"];
 
   return (
     <div

@@ -8,3 +8,36 @@ body {
   font-family: var(--font-retro);
   image-rendering: pixelated;
 }
+
+.scrollbar-retro {
+  scrollbar-width: thin;
+  scrollbar-color: #c0c0c0 #e0e0e0;
+}
+
+.scrollbar-retro::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.scrollbar-retro::-webkit-scrollbar-track {
+  background: #e0e0e0;
+  border: 2px solid #c0c0c0;
+  border-radius: 0;
+}
+
+.scrollbar-retro::-webkit-scrollbar-thumb {
+  background: repeating-linear-gradient(to bottom, #c0c0c0 0 2px, #808080 2px 4px);
+  border: 2px solid #808080;
+  border-radius: 0;
+}
+
+.scrollbar-retro::-webkit-scrollbar-thumb:hover {
+  background: repeating-linear-gradient(to bottom, #a0a0a0 0 2px, #808080 2px 4px);
+  border-radius: 0;
+}
+
+.scrollbar-retro,
+.scrollbar-retro * {
+  scrollbar-width: thin;
+  scrollbar-color: #c0c0c0 #e0e0e0;
+}
