@@ -1,5 +1,6 @@
 import type { Project } from '../../../../types';
 import { getTotalSize } from '../../../../lib/getTotalSize';
+import PaintModal from '../../paint-modal';
 // import resumePDF from '../../../../assets/Roya_Azemi_Resume.pdf';
 
 const projects: (Project & {
@@ -42,7 +43,7 @@ const projects: (Project & {
 
 export const WINDOW_REGISTRY: Record<
   string,
-  { title: string; headerColor?: string; content: React.ReactNode; footer?: React.ReactNode }
+  { title: string; headerColor?: string; content: React.ReactNode; footer?: React.ReactNode; noPadding?: boolean }
 > = {
   projects: {
     title: 'C:\\My Projects',
@@ -98,7 +99,12 @@ export const WINDOW_REGISTRY: Record<
       </div>
     ),
   },
-
+  paint: {
+    title: 'C:\\Untitled - Paint',
+    headerColor: 'from-purple-700 to-purple-300',
+    content: <PaintModal />,
+    noPadding: true,
+  },
   about: {
     title: 'C:\\About Me',
     headerColor: 'from-purple-700 to-purple-300',
@@ -268,6 +274,7 @@ export const WINDOW_REGISTRY: Record<
             <strong>Learning:</strong> AWS, LLMs & AI integration.
           </p>
         </div>
+
         {/* 
         <div className='bg-gray-100 border-2 border-gray-400 p-3 text-center mt-4'>
           <a
