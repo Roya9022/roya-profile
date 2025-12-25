@@ -10,11 +10,13 @@ const IntroNotepad = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(true);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     const checkMobile = () => {
       const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
+      setWindowWidth(window.innerWidth);
       if (!mobile) {
         setPosition({
           x: Math.max(20, Math.floor((window.innerWidth - 450) / 2)),
@@ -84,11 +86,15 @@ const IntroNotepad = () => {
         </div>
         <div
           className={`m-0.5 bg-white p-3 md:p-5 font-mono text-xs sm:text-sm md:text-base h-full ${WIN_INSET} relative`}>
-          <img
-            src='/roya.png'
-            alt='Roya Azemi'
-            className='absolute top-2 right-2 w-20 h-20 md:w-30 md:h-30 lg:w-40 lg:h-40 object-contain'
-          />
+          {/* Show image only if width > 404 */}
+          {windowWidth > 404 && (
+            <img
+              src='/me.png'
+              alt='Roya Azemi'
+              className='absolute top-2 right-2 w-20 h-20 md:w-25 md:h-25 lg:w-35 lg:h-35 object-contain'
+            />
+          )}
+
           {lines.map((line, index) => (
             <p key={index} className='mb-1 md:mb-2 text-black'>
               {line}

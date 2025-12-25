@@ -18,12 +18,12 @@ export const DESKTOP_ICONS: IconData[] = [
 
 export const INITIAL_ICON_POSITIONS: Record<string, Position> = {
   computer: { x: 80, y: 80 },
-  projects: { x: 80, y: 200 },
-  vibes: { x: 80, y: 320 },
-  about: { x: 80, y: 440 },
-  resume: { x: 220, y: 200 },
-  paint: { x: 220, y: 320 },
-  contact: { x: 220, y: 440 },
+  projects: { x: 80, y: 220 },
+  vibes: { x: 80, y: 340 },
+  about: { x: 80, y: 460 },
+  resume: { x: 220, y: 220 },
+  paint: { x: 220, y: 340 },
+  contact: { x: 220, y: 460 },
 };
 
 export const WIN_OUTSET =
