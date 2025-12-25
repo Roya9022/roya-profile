@@ -54,9 +54,11 @@ const IntroNotepad = () => {
 
   const lines = [
     'Hello, World!',
-    'Welcome Stranger!',
-    'My name is Roya Azemi',
-    "and I'm a Front-End Software Engineer!",
+    "I'm Roya Azemi,",
+    'a Front-End Software Engineer',
+    "based in Maryland",
+    "with 4+ years of experience.",
+
   ];
 
   return (
@@ -86,7 +88,6 @@ const IntroNotepad = () => {
         </div>
         <div
           className={`m-0.5 bg-white p-3 md:p-5 font-mono text-xs sm:text-sm md:text-base h-full ${WIN_INSET} relative`}>
-          {/* Show image only if width > 404 */}
           {windowWidth > 404 && (
             <img
               src='/me.png'
@@ -101,7 +102,7 @@ const IntroNotepad = () => {
             </p>
           ))}
           <div className='flex items-end flex-wrap'>
-            <p className='inline text-black'>Feel free to browse my desktop :D</p>
+            <p className='inline text-black'>Feel free to browse my desktop! :D</p>
             <span
               className={`ml-1 inline-block h-3 w-2 mb-0.5 md:h-5 md:w-2 bg-black ${!cursorVisible ? 'invisible' : ''}`}
             />
