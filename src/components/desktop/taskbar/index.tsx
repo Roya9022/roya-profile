@@ -19,14 +19,11 @@ const Taskbar: React.FC<TaskbarProps> = ({ windows = [], onClickWindow }) => {
       </button>
       <div className='h-6 md:h-8 w-0.5 bg-gray-400 border-r border-white mx-1' />
       <div className='flex-1 flex gap-1 overflow-x-auto h-full items-center'>
-        {/* Notepad - always visible */}
         <button
           className={`bg-[#C0C0C0] px-2 md:px-3 py-1 flex items-center gap-2 min-w-25 md:min-w-37.5 hover:brightness-110 shadow-sm ${WIN_OUTSET}`}>
           <span className='text-xs md:text-sm'>📝</span>
           <span className='text-xs md:text-sm truncate font-bold text-black'>Untitled - Notepad</span>
         </button>
-
-        {/* Minimized windows */}
         {windows.map((window) => (
           <button
             key={window.id}

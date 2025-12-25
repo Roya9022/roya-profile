@@ -13,7 +13,7 @@ const IntroNotepad = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      const mobile = window.innerWidth < 768;
+      const mobile = window.innerWidth < 1024;
       setIsMobile(mobile);
       if (!mobile) {
         setPosition({
@@ -22,9 +22,11 @@ const IntroNotepad = () => {
         });
       }
     };
+
     checkMobile();
     window.addEventListener('resize', checkMobile);
     const interval = setInterval(() => setCursorVisible((v) => !v), 530);
+
     return () => {
       window.removeEventListener('resize', checkMobile);
       clearInterval(interval);
@@ -48,11 +50,16 @@ const IntroNotepad = () => {
     e.currentTarget.releasePointerCapture(e.pointerId);
   };
 
-  const lines = ['Hello, World!', 'Welcome Stranger!', 'My name is Roya Azemi', "and I'm a Front-End Software Engineer!"];
+  const lines = [
+    'Hello, World!',
+    'Welcome Stranger!',
+    'My name is Roya Azemi',
+    "and I'm a Front-End Software Engineer!",
+  ];
 
   return (
     <div
-      className='relative mx-auto mb-20 md:absolute md:mx-0 md:mb-0 z-40 w-[90vw] sm:w-96 md:w-105 lg:w-120'
+      className='relative mx-auto mb-10 mt-4 lg:absolute lg:mx-0 lg:mb-0 lg:mt-0 z-40 w-[90vw] sm:w-96 md:w-105 lg:w-130'
       style={{
         transform: !isMobile ? `translate3d(${position.x}px, ${position.y}px, 0)` : 'none',
         left: 0,
@@ -63,7 +70,9 @@ const IntroNotepad = () => {
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
-          className='bg-linear-to-r from-blue-700 to-sky-400 px-2 py-1 flex justify-between items-center cursor-move touch-none'>
+          className={`bg-linear-to-r from-blue-700 to-sky-400 px-2 py-1 flex justify-between items-center ${
+            isMobile ? 'cursor-default' : 'cursor-move'
+          } touch-none`}>
           <div className='flex items-center gap-2 pointer-events-none text-white font-bold text-xs select-none'>
             <span>📝</span> Untitled - Notepad
           </div>
@@ -73,7 +82,13 @@ const IntroNotepad = () => {
             <TitleBarButton Icon={X} className='ml-0.5' />
           </div>
         </div>
-        <div className={`m-0.5 bg-white p-3 md:p-5 font-mono text-xs sm:text-sm md:text-base h-full ${WIN_INSET}`}>
+        <div
+          className={`m-0.5 bg-white p-3 md:p-5 font-mono text-xs sm:text-sm md:text-base h-full ${WIN_INSET} relative`}>
+          <img
+            src='/roya.png'
+            alt='Roya Azemi'
+            className='absolute top-2 right-2 w-20 h-20 md:w-30 md:h-30 lg:w-40 lg:h-40 object-contain'
+          />
           {lines.map((line, index) => (
             <p key={index} className='mb-1 md:mb-2 text-black'>
               {line}
