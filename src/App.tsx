@@ -92,6 +92,7 @@ export default function App() {
               }}>
               <ContentModal
                 {...config}
+                noPadding={config.noPadding}
                 position={windowPositions[id] || { x: 100, y: 100 }}
                 isMaximized={isMaximized}
                 isMinimized={minimizedWindowIds.includes(id)}
@@ -101,7 +102,7 @@ export default function App() {
                 onDrag={(pos) => updateWindowPosition(id, pos)}
                 onFocus={() => setFocusedId(id)}>
                 <div className='flex flex-col h-full pointer-events-auto'>
-                  <div className='flex-1 bg-white overflow-y-auto p-4 md:p-6'>{config.content}</div>
+                  {config.content}
                   {config.footer && (
                     <div className='bg-gray-200 border-t border-gray-400 px-2 py-1 flex justify-between text-xs text-gray-600'>
                       {config.footer}
@@ -113,7 +114,6 @@ export default function App() {
           );
         })}
       </div>
-
       <div className='relative z-200'>
         <Taskbar
           windows={taskbarWindows}

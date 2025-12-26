@@ -1,5 +1,6 @@
 import type { Project } from '../../../../types';
 import { getTotalSize } from '../../../../lib/getTotalSize';
+import PaintModal from '../../paint-modal';
 // import resumePDF from '../../../../assets/Roya_Azemi_Resume.pdf';
 
 const projects: (Project & {
@@ -42,7 +43,15 @@ const projects: (Project & {
 
 export const WINDOW_REGISTRY: Record<
   string,
-  { title: string; headerColor?: string; content: React.ReactNode; footer?: React.ReactNode }
+  {
+    title: string;
+    headerColor?: string;
+    content: React.ReactNode;
+    footer?: React.ReactNode;
+    noPadding?: boolean;
+    width?: string;
+    height?: string;
+  }
 > = {
   projects: {
     title: 'C:\\My Projects',
@@ -112,8 +121,10 @@ export const WINDOW_REGISTRY: Record<
         </p>
         <p className='text-gray-700 mb-4'>
           As a 90s kid, I spent countless hours on the computer playing games like <em>RollerCoaster Tycoon</em> and
-          drawing in Paint. This portfolio is a reflection of what first made me fall in love with computers and serves
-          as a small homage to those early days that sparked my passion for technology.
+          drawing in Paint. I remember in elementary school, computer class my favorite moments were when we got to use
+          Paint and create whatever we wanted, then take our drawings home on a floppy disk. For that reason I knew I
+          had to add it! This portfolio is a reflection of what first made me fall in love with computers and serves as
+          a small homage to those early days that sparked my passion for technology.
         </p>
         <p className='text-gray-700 mb-4'>
           Outside of coding, I enjoy reading, playing video games, working out (trying :D), listening to all kinds of
@@ -268,6 +279,7 @@ export const WINDOW_REGISTRY: Record<
             <strong>Learning:</strong> AWS, LLMs & AI integration.
           </p>
         </div>
+
         {/* 
         <div className='bg-gray-100 border-2 border-gray-400 p-3 text-center mt-4'>
           <a
@@ -280,5 +292,13 @@ export const WINDOW_REGISTRY: Record<
         </div> */}
       </div>
     ),
+  },
+  paint: {
+    title: 'C:\\Untitled - Paint',
+    headerColor: 'from-neutral-700 to-neutral-300',
+    content: <PaintModal />,
+    noPadding: true,
+    width: 'w-[70vw] md:w-[700px]',
+    height: 'aspect-[4/3]',
   },
 };
