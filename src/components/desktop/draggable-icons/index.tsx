@@ -77,7 +77,7 @@ const DraggableIcon: React.FC<DraggableIconProps> = ({ imageSrc, label, onClick,
         />
       </div>
       <span
-        className={`text-white text-[10px] md:text-xs text-center leading-tight px-1 py-0.5 rounded pointer-events-none ${
+        className={`text-white text-[10px] md:text-xs text-center leading-tight px-1 py-0.5 rounded pointer-events-none text-nowrap ${
           isDragging ? 'bg-[#000080]' : 'bg-transparent'
         } drop-shadow-[0_1px_1px_rgba(0,0,0,1)]`}>
         {label}

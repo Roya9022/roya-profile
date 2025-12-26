@@ -1,6 +1,7 @@
 import type { Project } from '../../../../types';
 import { getTotalSize } from '../../../../lib/getTotalSize';
 import PaintModal from '../../paint-modal';
+import RecycleBin from '../../recycle-bin';
 // import resumePDF from '../../../../assets/Roya_Azemi_Resume.pdf';
 
 const projects: (Project & {
@@ -41,7 +42,7 @@ const projects: (Project & {
   },
 ];
 
-export const WINDOW_REGISTRY: Record<
+export const WINDOW_CONTENT: Record<
   string,
   {
     title: string;
@@ -300,5 +301,11 @@ export const WINDOW_REGISTRY: Record<
     noPadding: true,
     width: 'w-[70vw] md:w-[700px]',
     height: 'aspect-[4/3]',
+  },
+
+  recycle: {
+    title: 'C:\\Recycle Bin',
+    headerColor: 'from-amber-300 to-amber-100',
+    content: <RecycleBin />,
   },
 };

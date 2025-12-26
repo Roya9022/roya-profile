@@ -14,6 +14,7 @@ export const DESKTOP_ICONS: IconData[] = [
   { id: 'resume', label: 'Resume.txt', img: 'resume.png' },
   { id: 'vibes', label: 'Vibes.mp3', img: 'music.png' },
   { id: 'paint', label: 'Paint', img: 'paint.png' },
+  { id: 'recycle', label: 'Recycle Bin', img: 'recycle.png' },
 ];
 
 export const INITIAL_ICON_POSITIONS: Record<string, Position> = {
@@ -24,6 +25,7 @@ export const INITIAL_ICON_POSITIONS: Record<string, Position> = {
   resume: { x: 220, y: 220 },
   paint: { x: 220, y: 340 },
   contact: { x: 220, y: 460 },
+  recycle: { x: 0, y: 0 },
 };
 
 export const WIN_OUTSET =

@@ -1,17 +1,20 @@
-import { useState, useEffect, useCallback } from 'react';
-import type { Position } from './types';
-import { DESKTOP_ICONS, INITIAL_ICON_POSITIONS } from './constants/icons';
+import React from 'react';
+import { DESKTOP_ICONS } from './constants/icons';
 import Background from './components/visuals/background';
 import Taskbar from './components/desktop/taskbar';
 import DraggableIcon from './components/desktop/draggable-icons';
 import ContentModal from './components/modals/content-modal';
 import IntroNotepad from './components/modals/intro-notepad';
-import { WINDOW_REGISTRY } from './components/modals/content-modal/data';
+import { WINDOW_CONTENT } from './components/modals/content-modal/data';
 import { useWindowManager } from './hooks/useWindowManager';
+import { useDesktopIcons } from './hooks/useDesktopIcons';
+
+interface InjectedProps {
+  isMaximized: boolean;
+}
 
 export default function App() {
-  const [iconPositions, setIconPositions] = useState<Record<string, Position>>(INITIAL_ICON_POSITIONS);
-
+  const { iconPositions, updateIconPosition } = useDesktopIcons();
   const {
     openWindowIds,
     minimizedWindowIds,
@@ -28,31 +31,10 @@ export default function App() {
 
   const taskbarWindows = openWindowIds.map((id) => ({
     id,
-    title: WINDOW_REGISTRY[id]?.title || 'Window',
+    title: WINDOW_CONTENT[id]?.title || 'Window',
     isMinimized: minimizedWindowIds.includes(id),
     isFocused: focusedId === id,
   }));
-
-  const clampPositions = useCallback(() => {
-    setIconPositions((prev) => {
-      const next = { ...prev };
-      const padding = 20;
-      const maxX = window.innerWidth - 80;
-      const maxY = window.innerHeight - 120;
-      Object.keys(next).forEach((id) => {
-        next[id] = {
-          x: Math.min(Math.max(padding, next[id].x), maxX),
-          y: Math.min(Math.max(padding, next[id].y), maxY),
-        };
-      });
-      return next;
-    });
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener('resize', clampPositions);
-    return () => window.removeEventListener('resize', clampPositions);
-  }, [clampPositions]);
 
   return (
     <div className='min-h-screen bg-linear-to-br from-sky-500 via-indigo-400 to-purple-400 relative font-mono flex flex-col overflow-hidden'>
@@ -66,19 +48,17 @@ export default function App() {
               imageSrc={`/desktop-icons/${icon.img}`}
               label={icon.label}
               position={iconPositions[icon.id] || { x: 0, y: 0 }}
-              onDrag={(pos) => setIconPositions((p) => ({ ...p, [icon.id]: pos }))}
+              onDrag={(pos) => updateIconPosition(icon.id, pos)}
               onClick={() => openWindow(icon.id)}
             />
           ))}
         </div>
         <IntroNotepad />
         {openWindowIds.map((id) => {
-          const config = WINDOW_REGISTRY[id];
+          const config = WINDOW_CONTENT[id];
           if (!config) return null;
-
           const isMaximized = maximizedWindowIds.includes(id);
           const isFocused = focusedId === id;
-
           return (
             <div
               key={id}
@@ -102,7 +82,9 @@ export default function App() {
                 onDrag={(pos) => updateWindowPosition(id, pos)}
                 onFocus={() => setFocusedId(id)}>
                 <div className='flex flex-col h-full pointer-events-auto'>
-                  {config.content}
+                  {React.isValidElement<InjectedProps>(config.content)
+                    ? React.cloneElement(config.content, { isMaximized })
+                    : config.content}
                   {config.footer && (
                     <div className='bg-gray-200 border-t border-gray-400 px-2 py-1 flex justify-between text-xs text-gray-600'>
                       {config.footer}
@@ -118,11 +100,8 @@ export default function App() {
         <Taskbar
           windows={taskbarWindows}
           onClickWindow={(id) => {
-            if (minimizedWindowIds.includes(id)) {
-              openWindow(id);
-            } else {
-              setFocusedId(id);
-            }
+            if (minimizedWindowIds.includes(id)) openWindow(id);
+            else setFocusedId(id);
           }}
         />
       </div>
