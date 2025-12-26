@@ -298,7 +298,7 @@ export const WINDOW_REGISTRY: Record<
     headerColor: 'from-neutral-700 to-neutral-300',
     content: <PaintModal />,
     noPadding: true,
-    width: 'w-[600px]',
-    height: 'h-[500px]',
+    width: 'w-[70vw] md:w-[700px]',
+    height: 'aspect-[4/3]',
   },
 };
