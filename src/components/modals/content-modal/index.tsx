@@ -13,6 +13,7 @@ interface ContentModalProps {
   children: React.ReactNode;
   headerColor?: string;
   width?: string;
+  height?: string;
   position: Position;
   onDrag: (pos: Position) => void;
   onFocus?: () => void;
@@ -29,6 +30,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
   children,
   headerColor = 'from-purple-800 to-purple-400',
   width = 'md:w-150',
+  height,
   position,
   onDrag,
   onFocus,
@@ -76,19 +78,18 @@ const ContentModal: React.FC<ContentModalProps> = ({
   return (
     <div className='relative h-full w-full pointer-events-auto' onPointerDown={onFocus}>
       {!isMaximized && <div className='fixed inset-0 bg-black/20 lg:hidden' onClick={onClose} />}
-
       <div
         className={`
-          bg-[#C0C0C0] flex flex-col p-0.5 ${WIN_OUTSET}
-          ${
-            isMaximized
-              ? 'fixed inset-0 w-screen h-screen z-[200]'
-              : `relative md:absolute ${width} w-[95vw] max-h-[85vh]`
-          }
-        `}
+    bg-[#C0C0C0] flex flex-col p-0.5 ${WIN_OUTSET}
+    ${
+      isMaximized
+        ? 'fixed inset-0 w-screen h-screen z-200'
+        : `relative md:absolute ${width} ${height || ''} w-[95vw] max-h-[85vh]`
+    }
+  `}
         style={{
           left: isMaximized || isMobile ? 'auto' : `${position.x}px`,
-          top: isMaximized || isMobile ? 'auto' : `${position.y}px`,
+          top: isMaximized || isMobile ? 'auto' : `${position.y - 100}px`,
           willChange: 'left, top',
         }}>
         <div
