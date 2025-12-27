@@ -5,7 +5,7 @@ import Taskbar from './components/desktop/taskbar';
 import DraggableIcon from './components/desktop/draggable-icons';
 import ContentModal from './components/modals/content-modal';
 import IntroNotepad from './components/modals/intro-notepad';
-import { WINDOW_CONTENT } from './components/modals/content-modal/data';
+import { WINDOW_CONTENT } from './components/modals/data';
 import { useWindowManager } from './hooks/useWindowManager';
 import { useDesktopIcons } from './hooks/useDesktopIcons';
 

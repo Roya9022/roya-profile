@@ -74,7 +74,7 @@ const IntroNotepad = () => {
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
           onPointerUp={handlePointerUp}
-          className={`bg-linear-to-r from-blue-700 to-sky-400 px-2 py-1 flex justify-between items-center ${
+          className={`bg-linear-to-r from-violet-400 to-sky-400 px-2 py-1 flex justify-between items-center ${
             isMobile ? 'cursor-default' : 'cursor-move'
           } touch-none`}>
           <div className='flex items-center gap-2 pointer-events-none text-white font-bold text-xs select-none'>
