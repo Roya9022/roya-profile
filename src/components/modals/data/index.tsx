@@ -3,6 +3,7 @@ import { getTotalSize } from '../../../lib/getTotalSize';
 import PaintModal from '../paint-modal';
 import RecycleBin from '../recycle-bin';
 import MusicPlayer from '../music-player';
+import MyComputer from '../my-computer';
 // import resumePDF from '../../../../assets/Roya_Azemi_Resume.pdf';
 
 const projects: (Project & {
@@ -315,5 +316,11 @@ export const WINDOW_CONTENT: Record<
     headerColor: 'from-teal-400 to-amber-200',
     content: <MusicPlayer />,
     noPadding: true,
+  },
+
+  computer: {
+    title: 'My Computer',
+    headerColor: 'from-pink-300 to-violet-500',
+    content: <MyComputer onClose={() => {}} />,
   },
 };

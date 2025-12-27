@@ -9,8 +9,9 @@ import { WINDOW_CONTENT } from './components/modals/data';
 import { useWindowManager } from './hooks/useWindowManager';
 import { useDesktopIcons } from './hooks/useDesktopIcons';
 
-interface InjectedProps {
-  isMaximized: boolean;
+export interface WindowComponentProps {
+  isMaximized?: boolean;
+  onClose?: () => void;
 }
 
 export default function App() {
@@ -82,8 +83,11 @@ export default function App() {
                 onDrag={(pos) => updateWindowPosition(id, pos)}
                 onFocus={() => setFocusedId(id)}>
                 <div className='flex flex-col h-full pointer-events-auto'>
-                  {React.isValidElement<InjectedProps>(config.content)
-                    ? React.cloneElement(config.content, { isMaximized })
+                  {React.isValidElement<WindowComponentProps>(config.content)
+                    ? React.cloneElement(config.content, {
+                        isMaximized,
+                        onClose: () => closeWindow(id),
+                      })
                     : config.content}
                   {config.footer && (
                     <div className='bg-gray-200 border-t border-gray-400 px-2 py-1 flex justify-between text-xs text-gray-600'>

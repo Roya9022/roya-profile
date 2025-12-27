@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import Equalizer from './Equalizer';
 
@@ -12,7 +12,7 @@ const tracks: Track[] = [
   { title: 'Lofi Chill - DELOSound', src: '/music/lofi1.mp3', playable: true },
   { title: 'Sakura - lofidreams', src: '/music/lofi2.mp3', playable: true },
   { title: 'Snowy Window - Turning Pages', src: '/music/lofi3.mp3', playable: true },
-  { title: 'Teenage Dirtbag – Wheatus', playable: false },
+  { title: 'Semi-Charmed Life – Third Eye Blind', playable: false },
   { title: 'Falls Apart – Sugar Ray', playable: false },
   { title: 'No Scrubs – TLC', playable: false },
 ];
