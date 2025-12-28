@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import type { Position } from '../types';
+import type { Position } from '@/types';
 
 export const useWindowManager = () => {
   const [openWindowIds, setOpenWindowIds] = useState<string[]>([]);
@@ -10,12 +10,12 @@ export const useWindowManager = () => {
 
   const openWindow = (id: string) => {
     if (!openWindowIds.includes(id)) {
-      const offset = openWindowIds.length * 30;
+      const offset = openWindowIds.length * 25;
       setWindowPositions((prev) => ({
         ...prev,
         [id]: {
-          x: window.innerWidth / 2 - 250 + offset,
-          y: window.innerHeight / 2 - 150 + offset,
+          x: window.innerWidth / 2 - 350 + offset,
+          y: 100 + offset,
         },
       }));
       setOpenWindowIds((prev) => [...prev, id]);

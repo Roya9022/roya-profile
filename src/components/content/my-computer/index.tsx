@@ -1,15 +1,17 @@
+import React from 'react';
+import { RetroFieldset, RetroButton } from '@/shared';
+
 interface MyComputerProps {
   onClose: () => void;
 }
 
-const MyComputer: React.FC<MyComputerProps> = ({ onClose }) => {
-  const fieldsetClasses =
-    'relative border-2 border-white border-b-[#808080] border-r-[#808080] p-4 pt-6 shadow-[inset_1px_1px_0_0_#808080]';
-  const labelClasses = 'absolute -top-3 left-3 bg-[#C0C0C0] px-2 text-xs font-bold uppercase';
+const fieldsetWrapperClass = '[&>legend]:text-violet-500';
 
+const MyComputer: React.FC<MyComputerProps> = ({ onClose }) => {
   return (
     <div className='border border-gray-500 bg-[#C0C0C0] h-full flex flex-col font-mono text-black selection:bg-[#000080] selection:text-white'>
       <div className='p-4 sm:p-6 flex-1 overflow-auto'>
+        <h2 className='text-lg font-bold text-sky-500 mb-6'>MY COMPUTER</h2>
         <div className='flex flex-col md:flex-row gap-6 md:gap-10 items-start'>
           <div className='flex flex-col items-center gap-4 min-w-30'>
             <div className='p-2 bg-white/20 rounded shadow-inner'>
@@ -21,22 +23,19 @@ const MyComputer: React.FC<MyComputerProps> = ({ onClose }) => {
             </div>
           </div>
           <div className='flex-1 flex flex-col gap-6 md:gap-8 w-full'>
-            <fieldset className={fieldsetClasses}>
-              <legend className={labelClasses}>System:</legend>
+            <RetroFieldset label='System:' className={fieldsetWrapperClass}>
               <div className='space-y-1 text-sm'>
                 <p className='text-black font-semibold'>Windows 98 (Roya Special Edition)</p>
                 <p className='text-gray-700 italic text-xs'>Version 2025.1.0</p>
               </div>
-            </fieldset>
-            <fieldset className={fieldsetClasses}>
-              <legend className={labelClasses}>Registered to:</legend>
+            </RetroFieldset>
+            <RetroFieldset label='Registered to:' className={fieldsetWrapperClass}>
               <div className='space-y-1'>
-                <p className='text-lg font-bold text-violet-400 tracking-tight'>ROYA-PC</p>
+                <p className='text-lg font-bold  tracking-tight'>ROYA-PC</p>
                 <p className='text-sm text-gray-700'>2025-FRONTEND-ENGINEER</p>
               </div>
-            </fieldset>
-            <fieldset className={fieldsetClasses}>
-              <legend className={`${labelClasses}`}>Computer Specs:</legend>
+            </RetroFieldset>
+            <RetroFieldset label='Computer Specs:' className={fieldsetWrapperClass}>
               <table className='w-full text-sm'>
                 <tbody>
                   <tr className='align-top'>
@@ -53,21 +52,13 @@ const MyComputer: React.FC<MyComputerProps> = ({ onClose }) => {
                   </tr>
                 </tbody>
               </table>
-            </fieldset>
+            </RetroFieldset>
           </div>
         </div>
         <div className='mt-8 md:mt-12 flex justify-end'>
-          <button
-            onClick={onClose}
-            className='min-w-18.75 px-6 py-1.5 bg-[#C0C0C0] text-sm font-bold border-2
-             border-t-white border-l-white border-b-[#000000] border-r-[#000000] 
-             shadow-[inset_-1px_-1px_0_0_#808080,inset_1px_1px_0_0_#DFDFDF] active:border-t-[#000000] 
-             active:border-l-[#000000] active:border-b-white active:border-r-white active:shadow-[inset_1px_1px_0_0_#808080]
-             hover:bg-[#DFDFDF] focus:outline-dotted focus:outline-1 focus:outline-black focus:-outline-offset-4'
-            type='button'
-            aria-label='Close My Computer properties'>
+          <RetroButton onClick={onClose} className='min-w-20'>
             OK
-          </button>
+          </RetroButton>
         </div>
       </div>
     </div>

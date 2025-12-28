@@ -70,3 +70,62 @@ body {
   opacity: 0.6;
   font-style: italic;
 }
+
+@layer components {
+  .retro-outset {
+    box-shadow: inset 1.5px 1.5px 0px 0px #ffffff, inset -1.5px -1.5px 0px 0px #868a8e, 0.5px 0.5px 0px 0.5px #000000;
+  }
+
+  .retro-inset {
+    box-shadow: inset 1.5px 1.5px 0px 0px #868a8e, inset -1.5px -1.5px 0px 0px #ffffff, -0.5px -0.5px 0px 0.5px #000000;
+    background-color: white;
+  }
+
+  .fieldset-retro {
+    position: relative;
+    border: 2px solid white;
+    border-bottom-color: #808080;
+    border-right-color: #808080;
+    padding: 1.5rem 1rem 1rem 1rem;
+    box-shadow: inset 1px 1px 0 0 #808080;
+    margin-bottom: 2rem;
+  }
+
+  .label-retro {
+    position: absolute;
+    top: -0.75rem;
+    left: 0.75rem;
+    background-color: #c0c0c0;
+    padding: 0 0.5rem;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #9333ea;
+  }
+
+  @layer components {
+    .icon-selected-wrapper {
+      position: relative;
+    }
+
+    .icon-selected-overlay {
+      position: absolute;
+      inset: 0;
+      background: #000080;
+      opacity: 0.5;
+      mix-blend-mode: multiply;
+      border: 1px dotted white;
+      pointer-events: none;
+    }
+
+    .icon-selected-image {
+      filter: brightness(75%);
+    }
+
+    .icon-selected-label {
+      background: #000080;
+      color: white;
+      border: 1px dotted #d1d5db;
+    }
+  }
+}

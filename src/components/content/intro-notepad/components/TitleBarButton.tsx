@@ -1,4 +1,4 @@
-import { WIN_OUTSET } from '../../../../constants/icons';
+import { WIN_OUTSET } from '@/constants/icons';
 
 interface TitleBarButtonProps {
   Icon: React.ElementType;

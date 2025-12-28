@@ -1,4 +1,4 @@
-import { WIN_INSET, WIN_OUTSET } from '../../../constants/icons';
+import { WIN_INSET, WIN_OUTSET } from '@/constants/icons';
 
 interface TaskbarProps {
   windows: Array<{ id: string; title: string; isMinimized: boolean; isFocused: boolean }>;

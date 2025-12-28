@@ -1,0 +1,11 @@
+export { default as AboutMe } from './about-me';
+export { default as ContactMe } from './contact-me';
+export { default as IntroNotepad } from './intro-notepad';
+export { default as MusicPlayer } from './music-player';
+export { default as MyComputer } from './my-computer';
+export { default as MyProjects } from './my-projects';
+export { default as MyProjectsFooter } from './my-projects';
+export { default as PaintModal } from './paint-modal';
+export { default as RecycleBin } from './recycle-bin';
+export { default as Resume } from './resume';
+export { default as TitleBarButton } from './intro-notepad/components/TitleBarButton';

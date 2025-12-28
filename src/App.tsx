@@ -1,11 +1,10 @@
 import React from 'react';
-import { DESKTOP_ICONS } from './constants/icons';
-import Background from './components/visuals/background';
-import Taskbar from './components/desktop/taskbar';
-import DraggableIcon from './components/desktop/draggable-icons';
-import ContentModal from './components/modals/content-modal';
-import IntroNotepad from './components/modals/intro-notepad';
-import { WINDOW_CONTENT } from './components/modals/data';
+import { DESKTOP_ICONS } from '@/constants/icons';
+import { Background } from '@/components/visuals';
+import { Taskbar, DraggableIcon } from '@/components/desktop';
+import { IntroNotepad } from '@/components/content';
+import { ContentModal } from '@/shared';
+import { MODAL_DATA } from './components/content/data';
 import { useWindowManager } from './hooks/useWindowManager';
 import { useDesktopIcons } from './hooks/useDesktopIcons';
 
@@ -32,7 +31,7 @@ export default function App() {
 
   const taskbarWindows = openWindowIds.map((id) => ({
     id,
-    title: WINDOW_CONTENT[id]?.title || 'Window',
+    title: MODAL_DATA[id]?.title || 'Window',
     isMinimized: minimizedWindowIds.includes(id),
     isFocused: focusedId === id,
   }));
@@ -56,16 +55,17 @@ export default function App() {
         </div>
         <IntroNotepad />
         {openWindowIds.map((id) => {
-          const config = WINDOW_CONTENT[id];
+          const config = MODAL_DATA[id];
           if (!config) return null;
           const isMaximized = maximizedWindowIds.includes(id);
           const isFocused = focusedId === id;
+
           return (
             <div
               key={id}
               className={`fixed inset-0 pointer-events-none ${
                 isMaximized ? 'z-150' : 'lg:absolute lg:inset-auto lg:block'
-              } ${!isMaximized && 'flex items-center justify-center p-4'}`}
+              } ${!isMaximized && 'p-0'}`}
               style={{
                 zIndex: isMaximized ? 150 : isFocused ? 100 : 50,
                 left: isMaximized || window.innerWidth < 1024 ? 0 : undefined,
@@ -74,7 +74,7 @@ export default function App() {
               <ContentModal
                 {...config}
                 noPadding={config.noPadding}
-                position={windowPositions[id] || { x: 100, y: 100 }}
+                position={windowPositions[id] || { x: 100, y: 40 }}
                 isMaximized={isMaximized}
                 isMinimized={minimizedWindowIds.includes(id)}
                 onClose={() => closeWindow(id)}
@@ -89,11 +89,6 @@ export default function App() {
                         onClose: () => closeWindow(id),
                       })
                     : config.content}
-                  {config.footer && (
-                    <div className='bg-gray-200 border-t border-gray-400 px-2 py-1 flex justify-between text-xs text-gray-600'>
-                      {config.footer}
-                    </div>
-                  )}
                 </div>
               </ContentModal>
             </div>
@@ -104,8 +99,11 @@ export default function App() {
         <Taskbar
           windows={taskbarWindows}
           onClickWindow={(id) => {
-            if (minimizedWindowIds.includes(id)) openWindow(id);
-            else setFocusedId(id);
+            if (minimizedWindowIds.includes(id)) {
+              openWindow(id);
+            } else {
+              setFocusedId(id);
+            }
           }}
         />
       </div>

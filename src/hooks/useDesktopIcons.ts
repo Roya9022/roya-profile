@@ -1,6 +1,6 @@
 import { useState, useCallback, useEffect } from 'react';
-import type { Position } from '../types';
-import { INITIAL_ICON_POSITIONS } from '../constants/icons';
+import type { Position } from '@/types';
+import { INITIAL_ICON_POSITIONS } from '@/constants/icons';
 
 const RECYCLE_OFFSETS = {
   horizontal: 200,

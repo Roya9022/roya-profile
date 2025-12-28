@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Minus, Square, X } from 'lucide-react';
-import type { Position } from '../../../types';
-import { WIN_OUTSET, WIN_INSET } from '../../../constants/icons';
-import TitleBarButton from './components/TitleBarButton';
+import type { Position } from '@/types';
+import { TitleBarButton } from '@/components/content';
 
-const IntroNotepad = () => {
+const IntroNotepad: React.FC = () => {
   const [isMobile, setIsMobile] = useState(true);
   const [position, setPosition] = useState<Position>({ x: 100, y: 100 });
   const [isDragging, setIsDragging] = useState(false);
@@ -56,9 +55,8 @@ const IntroNotepad = () => {
     'Hello, World!',
     "I'm Roya Azemi,",
     'a Front-End Software Engineer',
-    "based in Maryland",
-    "with 4+ years of experience.",
-
+    'based in Maryland',
+    'with 4+ years of experience.',
   ];
 
   return (
@@ -69,7 +67,7 @@ const IntroNotepad = () => {
         left: 0,
         top: 0,
       }}>
-      <div className={`bg-[#C0C0C0] flex flex-col p-0.5 ${WIN_OUTSET}`}>
+      <div className='bg-[#C0C0C0] p-0.5 retro-outset flex flex-col'>
         <div
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -86,8 +84,7 @@ const IntroNotepad = () => {
             <TitleBarButton Icon={X} className='ml-0.5' />
           </div>
         </div>
-        <div
-          className={`m-0.5 bg-white p-3 md:p-5 font-mono text-xs sm:text-sm md:text-base h-full ${WIN_INSET} relative`}>
+        <div className='m-1 p-3 md:p-5 font-mono text-xs sm:text-sm md:text-base h-full retro-inset relative min-h-[200px]'>
           {windowWidth > 404 && (
             <img
               src='/me.png'
@@ -95,7 +92,6 @@ const IntroNotepad = () => {
               className='absolute top-2 right-2 w-20 h-20 md:w-25 md:h-25 lg:w-35 lg:h-35 object-contain'
             />
           )}
-
           {lines.map((line, index) => (
             <p key={index} className='mb-1 md:mb-2 text-black'>
               {line}
@@ -112,5 +108,4 @@ const IntroNotepad = () => {
     </div>
   );
 };
-
 export default IntroNotepad;
