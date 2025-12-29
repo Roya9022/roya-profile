@@ -5,10 +5,7 @@ const AboutMe: React.FC = () => {
   const fieldsetWrapperClass = 'mb-8 [&>legend]:text-violet-500';
 
   return (
-    <div
-      className='bg-[#C0C0C0] max-h-125 overflow-y-auto p-4 sm:p-6 
-    font-mono text-sm scrollbar-retro 
-    shadow-[inset_1px_1px_0_0_#000]'>
+    <div className='bg-[#C0C0C0] max-h-125 overflow-y-auto p-4 sm:p-6 scrollbar-retro shadow-[inset_1px_1px_0_0_#000]'>
       <h2 className='text-lg font-bold text-sky-500 mb-6'>ABOUT ME</h2>
       <RetroFieldset label='User Identification:' className={fieldsetWrapperClass}>
         <p className='text-gray-800'>
@@ -46,9 +43,7 @@ const AboutMe: React.FC = () => {
           enjoy creating it!
         </p>
       </RetroFieldset>
-      <div className='text-center text-[10px] text-gray-500 pb-2 italic uppercase tracking-widest'>
-        *** Log Terminated ***
-      </div>
+      <div className='system-log-footer'>*** Thread Status: Listening for Career Opportunities ***</div>
     </div>
   );
 };

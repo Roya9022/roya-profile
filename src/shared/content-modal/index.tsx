@@ -85,13 +85,13 @@ const ContentModal: React.FC<ContentModalProps> = ({
           bg-[#C0C0C0] flex flex-col p-0.5 ${windowOutset}
           ${
             isMaximized
-              ? 'fixed inset-0 w-screen h-screen z-[200]'
+              ? 'fixed inset-0 w-screen h-screen z-200'
               : `relative md:absolute ${width} ${height || 'h-fit'} w-[95vw] max-h-[95vh]`
           }
         `}
         style={{
           left: isMaximized || isMobile ? 'auto' : `${position.x}px`,
-          top: isMaximized || isMobile ? 'auto' : `${position.y}px`, // Offset removed here
+          top: isMaximized || isMobile ? 'auto' : `${position.y}px`,
           willChange: 'left, top',
         }}>
         <div

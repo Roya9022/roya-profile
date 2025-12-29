@@ -24,19 +24,19 @@ const MyComputer: React.FC<MyComputerProps> = ({ onClose }) => {
           </div>
           <div className='flex-1 flex flex-col gap-6 md:gap-8 w-full'>
             <RetroFieldset label='System:' className={fieldsetWrapperClass}>
-              <div className='space-y-1 text-sm'>
+              <div className='space-y-1'>
                 <p className='text-black font-semibold'>Windows 98 (Roya Special Edition)</p>
-                <p className='text-gray-700 italic text-xs'>Version 2025.1.0</p>
+                <p className='text-gray-700'>Version 2025.1.0</p>
               </div>
             </RetroFieldset>
             <RetroFieldset label='Registered to:' className={fieldsetWrapperClass}>
               <div className='space-y-1'>
                 <p className='text-lg font-bold  tracking-tight'>ROYA-PC</p>
-                <p className='text-sm text-gray-700'>2025-FRONTEND-ENGINEER</p>
+                <p className='text-gray-700'>2025-FRONTEND-ENGINEER</p>
               </div>
             </RetroFieldset>
             <RetroFieldset label='Computer Specs:' className={fieldsetWrapperClass}>
-              <table className='w-full text-sm'>
+              <table className='w-full'>
                 <tbody>
                   <tr className='align-top'>
                     <td className='font-bold pr-3 pb-2 text-black whitespace-nowrap'>Processor:</td>

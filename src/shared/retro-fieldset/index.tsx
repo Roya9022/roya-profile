@@ -13,7 +13,7 @@ const RetroFieldset: React.FC<RetroFieldsetProps> = ({ label, children, classNam
 
   return (
     <fieldset className={`${borderStyles} p-4 pt-6 ${className}`}>
-      <legend className='absolute -top-3 left-3 bg-[#C0C0C0] px-2 text-xs font-bold uppercase'>{label}</legend>
+      <legend className='absolute -top-3 left-3 bg-[#C0C0C0] px-2 text-sm font-bold uppercase'>{label}</legend>
       {children}
     </fieldset>
   );

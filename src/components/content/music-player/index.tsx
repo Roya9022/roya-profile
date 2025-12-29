@@ -73,7 +73,7 @@ const MusicPlayer: React.FC = () => {
   };
 
   return (
-    <div className='w-full h-full p-3 font-mono text-sm flex flex-col gap-3'>
+    <div className='w-full h-full p-3 flex flex-col gap-3'>
       <div className='border border-gray-500 bg-[#c0c0c0] p-2'>
         <div className='truncate'>Now Playing: {tracks[currentTrack].title}</div>
       </div>

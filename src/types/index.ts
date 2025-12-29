@@ -9,7 +9,7 @@ export interface Project {
   id: number;
   name: string;
   iconSrc?: string;
-  color: string;
+  color?: string;
   size: string;
   description: string;
   tags: string[];

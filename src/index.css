@@ -33,13 +33,6 @@ body {
 
 .scrollbar-retro::-webkit-scrollbar-thumb:hover {
   background: repeating-linear-gradient(to bottom, #a0a0a0 0 2px, #808080 2px 4px);
-  border-radius: 0;
-}
-
-.scrollbar-retro,
-.scrollbar-retro * {
-  scrollbar-width: thin;
-  scrollbar-color: #c0c0c0 #e0e0e0;
 }
 
 .eq-bar {
@@ -103,29 +96,46 @@ body {
     color: #9333ea;
   }
 
-  @layer components {
-    .icon-selected-wrapper {
-      position: relative;
-    }
+  .icon-selected-wrapper {
+    position: relative;
+  }
 
-    .icon-selected-overlay {
-      position: absolute;
-      inset: 0;
-      background: #000080;
-      opacity: 0.5;
-      mix-blend-mode: multiply;
-      border: 1px dotted white;
-      pointer-events: none;
-    }
+  .icon-selected-overlay {
+    position: absolute;
+    inset: 0;
+    background: #000080;
+    opacity: 0.5;
+    mix-blend-mode: multiply;
+    border: 1px dotted white;
+    pointer-events: none;
+  }
 
-    .icon-selected-image {
-      filter: brightness(75%);
-    }
+  .icon-selected-image {
+    filter: brightness(75%);
+  }
 
-    .icon-selected-label {
-      background: #000080;
-      color: white;
-      border: 1px dotted #d1d5db;
-    }
+  .icon-selected-label {
+    background: #000080 !important;
+    color: white !important;
+    border: 1px dotted #d1d5db;
+  }
+
+  .system-log-footer {
+    @apply text-center text-[10px] md:text-sm text-gray-600 pb-2 italic uppercase tracking-widest;
+    font-weight: 500;
+  }
+
+  .retro-icon-recessed {
+    @apply flex items-center justify-center shrink-0 bg-[#dfdfdf];
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
+  }
+
+  .retro-icon-recessed img {
+    @apply object-contain [image-rendering:pixelated];
+    max-width: 32px;
+    max-height: 32px;
   }
 }
