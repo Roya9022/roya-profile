@@ -15,7 +15,7 @@ export const useWindowManager = () => {
         ...prev,
         [id]: {
           x: window.innerWidth / 2 - 350 + offset,
-          y: 100 + offset,
+          y: 30 + offset,
         },
       }));
       setOpenWindowIds((prev) => [...prev, id]);

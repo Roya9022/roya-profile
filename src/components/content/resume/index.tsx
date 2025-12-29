@@ -33,7 +33,7 @@ const ResumeItem: React.FC<ResumeItemProps> = ({ title, company, period, descrip
 
 const Resume: React.FC = () => {
   return (
-    <div className='border border-gray-500 p-4 bg-[#C0C0C0] h-full flex flex-col overflow-y-auto pr-2 scrollbar-retro max-h-161.25'>
+    <div className='border border-gray-500 p-4 bg-[#C0C0C0] h-full flex flex-col overflow-y-auto pr-2 scrollbar-retro max-h-[550px]'>
       <section className='space-y-1 mb-3.5'>
         <h2 className='text-xl font-bold uppercase text-sky-500 mb-4'>RESUME</h2>
         <p className='font-bold text-lg text-black'>Front-End Software Engineer</p>

@@ -140,7 +140,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
         </div>
         <div
           className={`m-1 flex-1 bg-white ${contentInset} ${
-            noPadding ? 'overflow-hidden p-0' : 'overflow-y-auto p-4 md:p-6'
+            noPadding ? 'overflow-hidden p-0' : 'overflow-y-auto p-4'
           } scrollbar-retro`}>
           {children}
         </div>
