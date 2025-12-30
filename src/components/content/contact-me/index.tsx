@@ -12,7 +12,7 @@ interface ContactItemProps {
 
 const ContactItem: React.FC<ContactItemProps> = ({ imageName, label, value, href, target }) => (
   <RetroButton href={href} target={target} className='w-full justify-start! p-2!'>
-    <div className='retro-icon-recessed flex-shrink-0'>
+    <div className='retro-icon-recessed shrink-0'>
       <img src={`/contact-me/${imageName}`} alt={label} className='w-6 h-6 md:w-8 md:h-8' />
     </div>
 

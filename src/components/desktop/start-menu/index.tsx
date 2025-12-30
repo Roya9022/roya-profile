@@ -17,14 +17,14 @@ const StartMenu: React.FC = () => {
 
   return (
     <div
-      className='absolute bottom-11 md:bottom-12 left-2 w-[calc(100vw-16px)] max-w-70 md:max-w-75 bg-[#c0c0c0] border-0.5 border-white border-r-black border-b-black shadow-[2px_2px_0_0_#000] z-[999] flex'
+      className='absolute bottom-11 md:bottom-12 left-2 w-[calc(100vw-16px)] max-w-70 md:max-w-75 bg-[#c0c0c0] border-0.5 border-white border-r-black border-b-black shadow-[2px_2px_0_0_#000] z-999 flex'
       onClick={(e) => e.stopPropagation()}>
       {showMessage && (
-        <div className='absolute -top-16 left-2 right-2 bg-sky-200 border border-black p-2 shadow-[2px_2px_0_0_#000] animate-bounce z-[1000]'>
+        <div className='absolute -top-16 left-2 right-2 bg-sky-200 border border-black p-2 shadow-[2px_2px_0_0_#000] animate-bounce z-1000'>
           <div className='text-[11px] text-black text-center font-sans font-bold leading-tight'>
             Nooo, don't leave yet! <br /> Are you sure you've seen everything? •ᴗ•
           </div>
-          <div className='absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-[8px] border-t-black'></div>
+          <div className='absolute -bottom-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8 border-t-black'></div>
           <div className='absolute -bottom-1.75 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[7px] border-l-transparent border-r-[7px] border-r-transparent border-t-[7px] border-t-sky-200'></div>
         </div>
       )}

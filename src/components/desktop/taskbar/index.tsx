@@ -16,10 +16,10 @@ const Taskbar: React.FC<TaskbarProps> = ({ windows = [], onStartClick, onClickWi
   }, []);
 
   return (
-    <footer className='fixed bottom-0 w-full h-10 md:h-12 bg-[#C0C0C0] border-t-2 border-white z-[200] flex items-center px-1 md:px-2 gap-1 md:gap-2'>
+    <footer className='fixed bottom-0 w-full h-10 md:h-12 bg-[#C0C0C0] border-t-2 border-white z-200 flex items-center px-1 md:px-2 gap-1 md:gap-2'>
       <button
         onClick={onStartClick}
-        className={`flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1 bg-[#C0C0C0] hover:brightness-110 active:shadow-inner active:translate-y-[1px] ${WIN_OUTSET}`}>
+        className={`flex items-center gap-1 md:gap-2 px-2 md:px-3 py-1 bg-[#C0C0C0] hover:brightness-110 active:shadow-inner active:translate-y-px ${WIN_OUTSET}`}>
         <img
           src='/windows.png'
           alt='Start'
@@ -34,7 +34,7 @@ const Taskbar: React.FC<TaskbarProps> = ({ windows = [], onStartClick, onClickWi
             key={window.id}
             onClick={() => onClickWindow(window.id)}
             className={`
-              px-2 md:px-3 py-1 flex items-center gap-2 min-w-[100px] md:min-w-[150px] max-w-[200px]
+              px-2 md:px-3 py-1 flex items-center gap-2 min-w-25 md:min-w-37.5 max-w-50
               ${window.isFocused ? WIN_INSET + ' bg-[#dfdfdf]' : WIN_OUTSET + ' bg-[#C0C0C0]'}
               hover:brightness-110 transition-all
             `}>
@@ -44,7 +44,7 @@ const Taskbar: React.FC<TaskbarProps> = ({ windows = [], onStartClick, onClickWi
         ))}
       </div>
       <div
-        className={`px-2 md:px-4 py-1 bg-[#C0C0C0] text-xs md:text-sm font-bold min-w-[80px] text-center ${WIN_INSET} shadow-inner`}>
+        className={`px-2 md:px-4 py-1 bg-[#C0C0C0] text-xs md:text-sm font-bold min-w-20 text-center ${WIN_INSET} shadow-inner`}>
         {time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true })}
       </div>
     </footer>
