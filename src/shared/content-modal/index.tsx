@@ -19,6 +19,7 @@ interface ContentModalProps {
   isMinimized?: boolean;
   icon?: string;
   noPadding?: boolean;
+  scrollable?: boolean;
 }
 
 const ContentModal: React.FC<ContentModalProps> = ({
@@ -37,6 +38,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
   isMinimized = false,
   noPadding = false,
   icon = '📁',
+  scrollable = true,
 }) => {
   const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < 1024 : false));
 
@@ -135,9 +137,12 @@ const ContentModal: React.FC<ContentModalProps> = ({
             ))}
           </div>
           <div
-            className={`m-1 flex-1 bg-white ${contentInset} ${
-              noPadding ? 'overflow-hidden p-0' : 'overflow-y-auto p-4 md:p-6'
-            } scrollbar-retro`}>
+            className={`
+              m-1 flex-1 bg-white ${contentInset} 
+              ${noPadding ? 'p-0' : 'p-4 md:p-6'} 
+              ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'} 
+              scrollbar-retro
+            `}>
             {children}
           </div>
         </div>
