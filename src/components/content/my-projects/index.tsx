@@ -48,15 +48,11 @@ const MyProjects: React.FC = () => {
             <div key={project.id} className='group'>
               <RetroFieldset label={project.name} className={fieldsetWrapperClass}>
                 <div className='flex items-start gap-3 md:gap-4'>
-                  {/* Icon size slightly smaller on mobile */}
                   <div className='retro-icon-recessed shrink-0 w-10 h-10 md:w-auto md:h-auto'>
                     <img src={project.iconSrc} alt={project.name} className='w-full h-full object-contain' />
                   </div>
-
                   <div className='flex-1 min-w-0'>
-                    {/* Responsive text for description */}
                     <p className='text-xs md:text-sm text-gray-800 mb-3 leading-tight'>{project.description}</p>
-
                     <div className='flex flex-wrap items-center gap-x-2 gap-y-2'>
                       {project.tags.map((tag) => (
                         <span
@@ -65,8 +61,6 @@ const MyProjects: React.FC = () => {
                           {tag}
                         </span>
                       ))}
-
-                      {/* Using the text-xs on buttons for mobile to prevent overflow */}
                       <RetroButton
                         href={project.github}
                         target='_blank'
@@ -74,7 +68,6 @@ const MyProjects: React.FC = () => {
                         className='text-[11px] md:text-sm h-7 md:h-auto px-2 md:px-4'>
                         GitHub
                       </RetroButton>
-
                       {project.live && (
                         <RetroButton
                           href={project.live}
@@ -90,8 +83,6 @@ const MyProjects: React.FC = () => {
                       )}
                     </div>
                   </div>
-
-                  {/* Show size only on larger mobile/desktop to keep the view clean */}
                   <div className='hidden md:block text-sm text-gray-600 self-start opacity-70 italic'>
                     {project.size}
                   </div>
@@ -101,8 +92,6 @@ const MyProjects: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* Footer / Status Bar - Adjusted for mobile text size */}
       <div className='flex justify-between items-center text-[10px] md:text-sm text-gray-700 px-3 py-1.5 bg-[#C0C0C0] border-t-2 border-white shadow-[0_-1px_0_0_#808080]'>
         <div className='flex gap-2 md:gap-4'>
           <span className='border-r border-gray-400 pr-2 md:pr-4'>{projects.length} object(s)</span>

@@ -34,7 +34,7 @@ const RecycleBin: React.FC = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const trashItems = [
-    { text: 'New Folder (99)', image: '/recycle-icons/folder.png', size: '0 KB', date: '12/28/2025 4:20 PM' },
+    { text: 'New Folder (99)', image: '/recycle-icons/folder.png', size: '0 KB', date: '12/28/2000 4:20 PM' },
     { text: 'napster_setup_v2.exe', image: '/recycle-icons/napster.png', size: '424 KB', date: '07/11/1998 03:45 AM' },
     { text: 'final_finallllll.psd', image: '/recycle-icons/psd.png', size: '450.8 KB', date: '12/25/1999 2:15 PM' },
     { text: 'README.TXT', image: '/recycle-icons/notepad.png', size: '1 KB', date: '01/01/1997 12:03 PM' },

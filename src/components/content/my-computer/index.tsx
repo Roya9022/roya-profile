@@ -26,13 +26,13 @@ const MyComputer: React.FC<MyComputerProps> = ({ onClose }) => {
             <RetroFieldset label='System:' className={fieldsetWrapperClass}>
               <div className='space-y-1 text-xs md:text-sm'>
                 <p className='text-black font-semibold'>Nostalgia OS (Roya Special Edition)</p>
-                <p className='text-gray-700'>Version 2025.1.0</p>
+                <p className='text-gray-700'>Version 2026.1.0</p>
               </div>
             </RetroFieldset>
             <RetroFieldset label='Registered to:' className={fieldsetWrapperClass}>
               <div className='space-y-1 text-xs md:text-sm'>
                 <p className='text-sm md:text-lg font-bold tracking-tight'>ROYA-PC</p>
-                <p className='text-gray-700'>2025-FRONTEND-ENGINEER</p>
+                <p className='text-gray-700'>2026-FRONTEND-ENGINEER</p>
               </div>
             </RetroFieldset>
             <RetroFieldset label='Computer Specs:' className={fieldsetWrapperClass}>

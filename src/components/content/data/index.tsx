@@ -5,7 +5,7 @@ export const MODAL_DATA: Record<
   string,
   {
     title: string;
-    icon?: string; // New optional emoji property
+    icon?: string;
     headerColor?: string;
     content: React.ReactNode;
     noPadding?: boolean;

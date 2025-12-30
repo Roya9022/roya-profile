@@ -84,8 +84,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
   };
 
   if (isMinimized) return null;
-
-  // CSS for centering on mobile
+  
   const mobileCenterClasses = isMobile && !isMaximized ? 'flex items-center justify-center' : '';
 
   return (
@@ -109,7 +108,6 @@ const ContentModal: React.FC<ContentModalProps> = ({
                 : `${width} ${height || 'h-fit'}`
             }
           `}>
-          {/* TITLE BAR */}
           <div
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}
@@ -128,8 +126,6 @@ const ContentModal: React.FC<ContentModalProps> = ({
               <TitleBarButton Icon={X} onClick={onClose} />
             </div>
           </div>
-
-          {/* MENU BAR */}
           <div className='px-2 py-0.5 flex gap-3 text-xs border-b border-gray-400 text-black bg-[#C0C0C0]'>
             {['File', 'Edit', 'View', 'Help'].map((item) => (
               <button key={item} className='hover:bg-[#000080] hover:text-white px-1 cursor-default outline-none'>
@@ -138,8 +134,6 @@ const ContentModal: React.FC<ContentModalProps> = ({
               </button>
             ))}
           </div>
-
-          {/* CONTENT */}
           <div
             className={`m-1 flex-1 bg-white ${contentInset} ${
               noPadding ? 'overflow-hidden p-0' : 'overflow-y-auto p-4 md:p-6'

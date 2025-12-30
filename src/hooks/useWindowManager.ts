@@ -8,19 +8,15 @@ export const useWindowManager = () => {
   const [focusedId, setFocusedId] = useState<string | null>(null);
   const [windowPositions, setWindowPositions] = useState<Record<string, Position>>({});
 
-  // NEW: Fix for the "Stretching" issue
-  // This detects when you resize from mobile to desktop and re-centers windows
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1024) {
         setWindowPositions((prev) => {
           const newPositions = { ...prev };
           openWindowIds.forEach((id) => {
-            // If the window position is near 0 or hasn't been set properly for desktop
-            // We re-center it so it doesn't look "stuck" at the top-left
             if (!newPositions[id] || newPositions[id].x < 50) {
               newPositions[id] = {
-                x: window.innerWidth / 2 - 350, // Center based on standard 700px width
+                x: window.innerWidth / 2 - 350, 
                 y: 60,
               };
             }
@@ -37,10 +33,6 @@ export const useWindowManager = () => {
   const openWindow = (id: string) => {
     if (!openWindowIds.includes(id)) {
       const offset = openWindowIds.length * 25;
-
-      // Calculate a safe starting position
-      // If mobile, we start at 0 (CSS handles centering)
-      // If desktop, we center it
       const isMobile = window.innerWidth < 1024;
 
       setWindowPositions((prev) => ({

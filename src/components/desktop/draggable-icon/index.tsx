@@ -68,7 +68,6 @@ const DraggableIcon: React.FC<DraggableIconProps> = ({ imageSrc, label, onClick,
         isMobile ? 'relative' : 'absolute'
       } ${isDragging ? 'z-50 cursor-grabbing' : 'z-20 cursor-default'}`}
       style={{
-        // Disable translate3d on mobile so it stays in the CSS Grid
         transform: isMobile ? 'none' : `translate3d(${position.x}px, ${position.y}px, 0)`,
         transition: isDragging ? 'none' : 'transform 0.2s cubic-bezier(0.1, 0.2, 0.1, 1)',
       }}>

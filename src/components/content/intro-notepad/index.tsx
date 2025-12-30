@@ -94,11 +94,11 @@ const IntroNotepad: React.FC = () => {
           )}
           <div className='relative z-10'>
             {lines.map((line, index) => (
-              <p key={index} className='mb-1 md:mb-2 text-black leading-tight'>
+              <p key={index} className='mb-2 md:mb-3 text-black leading-tight'>
                 {line}
               </p>
             ))}
-            <div className='flex items-end flex-wrap mt-4'>
+            <div className='flex items-end flex-wrap mt-9'>
               <p className='inline text-black'>Feel free to browse my desktop! :D</p>
               <span
                 className={`ml-1 inline-block h-3 w-2 mb-0.5 md:h-5 md:w-2 bg-black ${
