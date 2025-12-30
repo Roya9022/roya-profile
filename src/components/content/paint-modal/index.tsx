@@ -15,8 +15,8 @@ const PaintModal: React.FC = () => {
       <iframe
         src='https://paint.js.org/'
         title='Retro Paint'
-        onLoad={() => setIsLoading(false)} 
-        className={`flex-1 w-full border-none transition-opacity duration-300 ${
+        onLoad={() => setIsLoading(false)}
+        className={`flex-1 w-full border-none transition-opacity duration-300 p-4 ${
           isLoading ? 'opacity-0' : 'opacity-100'
         }`}
         style={{ minHeight: '500px' }}
