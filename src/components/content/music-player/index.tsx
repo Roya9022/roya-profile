@@ -73,9 +73,9 @@ const MusicPlayer: React.FC = () => {
   };
 
   return (
-    <div className='w-full h-full p-3 flex flex-col gap-3'>
+    <div className='w-full h-full p-3 font-mono text-sm flex flex-col gap-3'>
       <div className='border border-gray-500 bg-[#c0c0c0] p-2'>
-        <div className='truncate'>Now Playing: {tracks[currentTrack].title}</div>
+        <div className='truncate text-xs sm:text-sm'>Now Playing: {tracks[currentTrack].title}</div>
       </div>
       <Equalizer isPlaying={isPlaying} />
       <div className='flex justify-center items-center gap-6 mt-4'>
@@ -119,7 +119,7 @@ const MusicPlayer: React.FC = () => {
               : 'bg-gray-100 hover:bg-gray-200'
           }
         `}>
-              <span>{track.title}</span>
+              <span className='text-xs sm:text-sm'>{track.title}</span>
               {/* {!track.playable && <span className='text-xs'>(unavailable)</span>} */}
             </button>
           );

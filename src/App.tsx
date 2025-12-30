@@ -34,14 +34,17 @@ export default function App() {
     title: MODAL_DATA[id]?.title || 'Window',
     isMinimized: minimizedWindowIds.includes(id),
     isFocused: focusedId === id,
+    icon: MODAL_DATA[id]?.icon || '📁',
   }));
 
   return (
-    <div className='min-h-screen bg-linear-to-br from-sky-500 via-indigo-400 to-purple-400 relative font-mono flex flex-col overflow-hidden'>
+    <div className='min-h-screen bg-linear-to-br from-sky-500 via-indigo-400 to-purple-400 relative font-mono flex flex-col overflow-hidden pb-1'>
       <Background />
 
-      <div className='flex-1 relative z-10 lg:overflow-hidden overflow-y-auto pb-24 lg:pb-0'>
-        <div className='flex flex-wrap justify-start gap-6 p-6 lg:block lg:p-0 lg:h-full lg:w-full relative z-20'>
+      {/* Desktop Area */}
+      <div className='flex-1 relative z-10 overflow-hidden'>
+        {/* Mobile: Grid Layout | Desktop: Absolute Layout */}
+        <div className='grid grid-cols-3 sm:grid-cols-4 gap-4 p-4 lg:block lg:p-0 lg:h-full lg:w-full relative z-20'>
           {DESKTOP_ICONS.map((icon) => (
             <DraggableIcon
               key={icon.id}
@@ -53,7 +56,9 @@ export default function App() {
             />
           ))}
         </div>
+
         <IntroNotepad />
+
         {openWindowIds.map((id) => {
           const config = MODAL_DATA[id];
           if (!config) return null;
@@ -63,13 +68,16 @@ export default function App() {
           return (
             <div
               key={id}
-              className={`fixed inset-0 pointer-events-none ${
-                isMaximized ? 'z-150' : 'lg:absolute lg:inset-auto lg:block'
-              } ${!isMaximized && 'p-0'}`}
+              className={`fixed lg:absolute inset-0 lg:inset-auto pointer-events-none ${
+                isMaximized ? 'z-150' : 'z-50'
+              }`}
               style={{
                 zIndex: isMaximized ? 150 : isFocused ? 100 : 50,
+                // On mobile, we ignore the manual position state and center it
                 left: isMaximized || window.innerWidth < 1024 ? 0 : undefined,
                 top: isMaximized || window.innerWidth < 1024 ? 0 : undefined,
+                width: isMaximized || window.innerWidth < 1024 ? '100%' : 'auto',
+                height: isMaximized || window.innerWidth < 1024 ? '100%' : 'auto',
               }}>
               <ContentModal
                 {...config}
@@ -95,6 +103,7 @@ export default function App() {
           );
         })}
       </div>
+
       <div className='relative z-200'>
         <Taskbar
           windows={taskbarWindows}

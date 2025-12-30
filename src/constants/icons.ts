@@ -9,10 +9,10 @@ export interface IconData {
 export const DESKTOP_ICONS: IconData[] = [
   { id: 'computer', label: 'My Computer', img: 'my-computer.png' },
   { id: 'projects', label: 'Projects', img: 'my-projects.png' },
-  { id: 'about', label: 'About Me', img: 'about-me.png' },
+  { id: 'about', label: 'About Me.txt', img: 'about-me.png' },
   { id: 'contact', label: 'Contact Me', img: 'contact-me.png' },
   { id: 'resume', label: 'Resume.txt', img: 'resume.png' },
-  { id: 'vibes', label: 'Vibes.mp3', img: 'music.png' },
+  { id: 'vibes', label: 'Vibes Player', img: 'music.png' },
   { id: 'paint', label: 'Paint', img: 'paint.png' },
   { id: 'recycle', label: 'Recycle Bin', img: 'recycle.png' },
 ];

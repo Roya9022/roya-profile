@@ -17,6 +17,7 @@ interface ContentModalProps {
   onDrag: (pos: Position) => void;
   onFocus?: () => void;
   isMinimized?: boolean;
+  icon?: string;
   noPadding?: boolean;
 }
 
@@ -27,7 +28,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
   onMaximize,
   isMaximized = false,
   children,
-  headerColor,
+  headerColor = 'from-violet-400 to-sky-400',
   width = 'md:w-[700px]',
   height,
   position,
@@ -35,13 +36,18 @@ const ContentModal: React.FC<ContentModalProps> = ({
   onFocus,
   isMinimized = false,
   noPadding = false,
+  icon = '📁',
 }) => {
-  const [isMobile, setIsMobile] = useState(false);
-  const dragInfo = useRef({ isDragging: false, startX: 0, startY: 0 });
+  const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < 1024 : false));
+
+  const dragInfo = useRef({
+    isDragging: false,
+    startX: 0,
+    startY: 0,
+  });
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-    checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
@@ -51,17 +57,20 @@ const ContentModal: React.FC<ContentModalProps> = ({
 
   const handlePointerDown = (e: React.PointerEvent) => {
     if (isMaximized || isMobile || (e.target as HTMLElement).closest('button')) return;
+
     dragInfo.current = {
       isDragging: true,
       startX: e.clientX - position.x,
       startY: e.clientY - position.y,
     };
+
     onFocus?.();
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   };
 
   const handlePointerMove = (e: React.PointerEvent) => {
     if (!dragInfo.current.isDragging) return;
+
     onDrag({
       x: e.clientX - dragInfo.current.startX,
       y: e.clientY - dragInfo.current.startY,
@@ -69,86 +78,75 @@ const ContentModal: React.FC<ContentModalProps> = ({
   };
 
   const handlePointerUp = (e: React.PointerEvent) => {
-    if (dragInfo.current.isDragging) {
-      dragInfo.current.isDragging = false;
-      (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
-    }
+    if (!dragInfo.current.isDragging) return;
+    dragInfo.current.isDragging = false;
+    (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId);
   };
 
   if (isMinimized) return null;
 
+  // CSS for centering on mobile
+  const mobileCenterClasses = isMobile && !isMaximized ? 'flex items-center justify-center' : '';
+
   return (
-    <div className='relative h-full w-full pointer-events-auto' onPointerDown={onFocus}>
-      {!isMaximized && <div className='fixed inset-0 bg-black/20 lg:hidden' onClick={onClose} />}
+    <div
+      className={`absolute inset-0 pointer-events-none ${mobileCenterClasses}`}
+      style={{ zIndex: isMaximized ? 200 : 50 }}>
       <div
-        className={`
-          bg-[#C0C0C0] flex flex-col p-0.5 ${windowOutset}
-          ${
-            isMaximized
-              ? 'fixed inset-0 w-screen h-screen z-200'
-              : `relative md:absolute ${width} ${height || 'h-fit'} w-[95vw] max-h-[95vh]`
-          }
-        `}
+        className={`${isMobile && !isMaximized ? 'relative' : 'absolute'} pointer-events-auto`}
         style={{
           left: isMaximized || isMobile ? 'auto' : `${position.x}px`,
           top: isMaximized || isMobile ? 'auto' : `${position.y}px`,
-          willChange: 'left, top',
         }}>
         <div
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          className={`bg-linear-to-r ${headerColor} px-2 py-1 flex justify-between items-center select-none ${
-            isMaximized || isMobile ? 'cursor-default' : 'cursor-move'
-          } touch-none`}>
-          <div className='flex items-center gap-2 pointer-events-none text-white font-bold text-xs'>
-            <span className='[image-rendering:pixelated] text-sm'>📁</span>
-            <span className='truncate uppercase tracking-wider'>{title}</span>
+          className={`
+            bg-[#C0C0C0] flex flex-col p-0.5 ${windowOutset}
+            ${
+              isMaximized
+                ? 'fixed inset-0 w-screen h-screen'
+                : isMobile
+                ? 'w-[95vw] max-h-[85vh]'
+                : `${width} ${height || 'h-fit'}`
+            }
+          `}>
+          {/* TITLE BAR */}
+          <div
+            onPointerDown={handlePointerDown}
+            onPointerMove={handlePointerMove}
+            onPointerUp={handlePointerUp}
+            className={`bg-linear-to-r ${headerColor} px-2 py-1 flex justify-between items-center select-none ${
+              isMaximized || isMobile ? 'cursor-default' : 'cursor-move'
+            }`}>
+            <div className='flex items-center gap-2 pointer-events-none text-white font-bold text-xs'>
+              <span className='[image-rendering:pixelated] text-sm'>{icon}</span>
+              <span className='truncate uppercase tracking-wider'>{title}</span>
+            </div>
+
+            <div className='flex gap-1'>
+              <TitleBarButton Icon={Minus} onClick={onMinimize} />
+              <TitleBarButton Icon={Square} onClick={onMaximize} />
+              <TitleBarButton Icon={X} onClick={onClose} />
+            </div>
           </div>
-          <div className='flex gap-1'>
-            <TitleBarButton
-              Icon={Minus}
-              onClick={(e) => {
-                e.stopPropagation();
-                onMinimize?.();
-              }}
-            />
-            <TitleBarButton
-              Icon={Square}
-              onClick={(e) => {
-                e.stopPropagation();
-                onMaximize?.();
-              }}
-            />
-            <TitleBarButton
-              Icon={X}
-              className='ml-0.5 hover:bg-[#DFDFDF] transition-colors'
-              onClick={(e) => {
-                e.stopPropagation();
-                onClose();
-              }}
-            />
+
+          {/* MENU BAR */}
+          <div className='px-2 py-0.5 flex gap-3 text-xs border-b border-gray-400 text-black bg-[#C0C0C0]'>
+            {['File', 'Edit', 'View', 'Help'].map((item) => (
+              <button key={item} className='hover:bg-[#000080] hover:text-white px-1 cursor-default outline-none'>
+                <span className='underline'>{item[0]}</span>
+                {item.slice(1)}
+              </button>
+            ))}
+          </div>
+
+          {/* CONTENT */}
+          <div
+            className={`m-1 flex-1 bg-white ${contentInset} ${
+              noPadding ? 'overflow-hidden p-0' : 'overflow-y-auto p-4 md:p-6'
+            } scrollbar-retro`}>
+            {children}
           </div>
         </div>
-        <div className='px-2 py-0.5 flex gap-3 text-xs border-b border-gray-400 text-black bg-[#C0C0C0]'>
-          {['File', 'Edit', 'View', 'Help'].map((item) => (
-            <button key={item} className='hover:bg-[#000080] hover:text-white px-1 cursor-default'>
-              <span className='underline'>{item[0]}</span>
-              {item.slice(1)}
-            </button>
-          ))}
-        </div>
-        <div
-          className={`m-1 flex-1 bg-white ${contentInset} ${
-            noPadding ? 'overflow-hidden p-0' : 'overflow-y-auto p-4 md:p-6'
-          } scrollbar-retro`}>
-          {children}
-        </div>
-        {!isMaximized && !isMobile && (
-          <div className='absolute bottom-1 right-1 w-3 h-3 cursor-nwse-resize opacity-50'>
-            <div className='border-r-2 border-b-2 border-gray-600 w-full h-full'></div>
-          </div>
-        )}
       </div>
     </div>
   );
