@@ -82,7 +82,7 @@ const MusicPlayer: React.FC = () => {
         <button onClick={prevTrack} className='retro-btn text-3xl px-4 py-2'>
           ⏮
         </button>
-        <button onClick={togglePlay} className='retro-btn text-4xl px-5 py-3'>
+        <button onClick={togglePlay} className='retro-btn text-4xl px-5 py-3 focus:outline-none focus:ring-0'>
           {isPlaying ? '⏸' : '▶'}
         </button>
         <button onClick={nextTrack} className='retro-btn text-3xl px-4 py-2'>
@@ -91,7 +91,7 @@ const MusicPlayer: React.FC = () => {
       </div>
       <input type='range' min={0} max={100} value={progress} onChange={seek} className='w-full' />
       <div className='flex items-center gap-3 mt-3'>
-        <span className='text-2xl'>🔊</span>
+        <span className='text-3xl select-none rotate-180'>🕪</span>
         <input
           type='range'
           min={0}
@@ -99,7 +99,7 @@ const MusicPlayer: React.FC = () => {
           step={0.01}
           value={volume}
           onChange={(e) => setVolume(Number(e.target.value))}
-          className='flex-1'
+          className='flex-1 focus:outline-none focus:ring-0'
         />
       </div>
       <div className='flex flex-col gap-1 mt-2'>
@@ -120,7 +120,6 @@ const MusicPlayer: React.FC = () => {
           }
         `}>
               <span className='text-xs sm:text-sm'>{track.title}</span>
-              {/* {!track.playable && <span className='text-xs'>(unavailable)</span>} */}
             </button>
           );
         })}
