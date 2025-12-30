@@ -70,9 +70,10 @@ npm run dev
 
 ## 📜 Personal Note
 
+Hi, I'm Roya! I built this space to show what I've been working on. Feel free to explore!
 This project was built to bridge the gap between my love for retro aesthetics and modern web development practices. It demonstrates my ability to handle complex UI states, responsive design, and creative problem-solving.
 
-"Hi, I'm Roya! I built this space to show what I've been working on. Feel free to explore—just don't break anything! :)"
+
 
 ---
 
