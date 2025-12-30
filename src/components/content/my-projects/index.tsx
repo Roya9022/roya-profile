@@ -9,7 +9,7 @@ const projects: (Project & { github: string; live?: string })[] = [
     id: 0,
     name: 'Retro Portfolio',
     iconSrc: '/my-projects/portfolio.png',
-    size: '553 KB',
+    size: '19.8 MB',
     description: 'A unconventional retro style portfolio with a few personal twists!',
     tags: ['React', 'Tailwind', 'TypeScript'],
     github: `${GITHUB_LINK}roya-profile`,
