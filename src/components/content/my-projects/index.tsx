@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Project } from '@/types';
-import { getTotalSize } from '../../../lib/getTotalSize';
+import { getTotalSize } from '../../../hooks/getTotalSize';
 import { RetroFieldset, RetroButton } from '@/shared';
 import { GITHUB_LINK, DONATION_APP_LINK_LIVE } from '@/constants/links';
 

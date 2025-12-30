@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# 🖥️ Roya OS: A Retro Portfolio Experience
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A bespoke, Windows 98-inspired digital environment built to showcase my software engineering journey. This project reimagines a traditional portfolio as a fully functional, interactive operating system in the browser.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Window Management System**: Custom-built hook-based window manager handling focus, minimization, maximization, and z-index layering.
+- **Interactive Desktop**: Draggable icons and windows with persistence logic and pixel-art aesthetics.
+- **Retro UI Components**: Authentically styled Win98 buttons, title bars, and "outset/inset" borders using Tailwind CSS.
+- **Responsive Start Menu**: A centered navigation hub featuring custom retro 45-degree arrow icons and a playful "Shutdown" sequence.
+- **Live Apps**:
+  - **Paint**: Integration of a retro drawing tool via iframe with custom loading states to prevent "crushed" layouts.
+  - **Notepad**: Markdown-based text viewer for "About Me" and "Resume" data.
+  - **Taskbar**: Real-time clock and active window tracking with unique emoji identification.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework**: React + Vite
+- **Styling**: Tailwind CSS (Custom retro utility classes)
+- **Icons**: Lucide React + Custom SVG paths for brand icons
+- **State Management**: Custom React Hooks for window and desktop state management
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 📂 Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```text
+src/
+├── assets/           # cv pdf file
+├── components/       # UI Components
+│   ├── content/      # App-specific modals (Paint, About, Projects)
+│   ├── desktop/      # Taskbar, StartMenu, DraggableIcons
+│   └── visuals/      # CRT effects and background layers
+├── constants/        # Social links and window configurations
+├── content/          # Static text 
+├── hooks/            # useWindowManager (The "Kernel" of the OS) and more
+├── shared/           # Reusable UI primitives (ContentModal)
+└── types/            # TypeScript interfaces and type definitions
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⌨️ Development
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+To run this project locally:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/Roya9022/roya-profile.git
 ```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📜 Personal Note
+
+This project was built to bridge the gap between my love for retro aesthetics and modern web development practices. It demonstrates my ability to handle complex UI states, responsive design, and creative problem-solving.
+
+"Hi, I'm Roya! I built this space to show what I've been working on. Feel free to explore—just don't break anything! :)"
+
+---
+
+## 🤝 Contact
+
+- **GitHub**: [@Roya9022](https://github.com/Roya9022)
+- **LinkedIn**: [linkedin.com/in/roya-azemi](https://linkedin.com/in/roya-azemi)
+- **Email**: azemiroya@gmail.com
