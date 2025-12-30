@@ -87,7 +87,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
 
   if (isMinimized) return null;
 
-  const mobileCenterClasses = isMobile && !isMaximized ? 'flex items-center justify-center' : '';
+  const mobileCenterClasses = isMobile && !isMaximized ? 'flex items-start justify-center pt-10 pb-20' : '';
 
   return (
     <div
@@ -104,9 +104,9 @@ const ContentModal: React.FC<ContentModalProps> = ({
             bg-[#C0C0C0] flex flex-col p-0.5 ${windowOutset}
             ${
               isMaximized
-                ? 'fixed inset-0 w-screen h-screen'
+                ? 'fixed inset-0 w-screen h-dvh'
                 : isMobile
-                ? 'w-[95vw] max-h-[85vh]'
+                ? 'w-[95vw] max-h-[70dvh]'
                 : `${width} ${height || 'h-fit'}`
             }
           `}>

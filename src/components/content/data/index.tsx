@@ -1,5 +1,4 @@
 import { PaintModal, RecycleBin, MusicPlayer, AboutMe, ContactMe, Resume, MyComputer, MyProjects } from '..';
-// import resumePDF from '../../../../assets/Roya_Azemi_Resume.pdf';
 
 export const MODAL_DATA: Record<
   string,
