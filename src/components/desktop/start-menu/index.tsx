@@ -1,11 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Power } from 'lucide-react';
-
-interface StartMenuProps {
-  onShutdown?: () => void;
-}
-
-const StartMenu: React.FC<StartMenuProps> = () => {
+import { GITHUB_LINK, LINKEDIN_LINK } from '@/constants/links';
+const StartMenu: React.FC = () => {
   const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
@@ -43,7 +39,7 @@ const StartMenu: React.FC<StartMenuProps> = () => {
         </div>
         <div className='py-1'>
           <a
-            href='https://www.linkedin.com/in/roya-azemi'
+            href={LINKEDIN_LINK}
             target='_blank'
             rel='noopener noreferrer'
             className='w-full flex items-center gap-3 px-3 py-2 hover:bg-[#DFDFDF] hover:text-white text-sm group transition-colors'>
@@ -51,7 +47,7 @@ const StartMenu: React.FC<StartMenuProps> = () => {
             <span className='truncate'>LinkedIn Profile</span>
           </a>
           <a
-            href='https://github.com/Roya9022'
+            href={GITHUB_LINK}
             target='_blank'
             rel='noopener noreferrer'
             className='w-full flex items-center gap-3 px-3 py-2 hover:bg-[#DFDFDF] hover:text-white text-sm group transition-colors'>

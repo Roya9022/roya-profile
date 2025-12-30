@@ -2,6 +2,7 @@ import React from 'react';
 import type { Project } from '@/types';
 import { getTotalSize } from '../../../lib/getTotalSize';
 import { RetroFieldset, RetroButton } from '@/shared';
+import { GITHUB_LINK, DONATION_APP_LINK_LIVE } from '@/constants/links';
 
 const projects: (Project & { github: string; live?: string })[] = [
   {
@@ -11,7 +12,7 @@ const projects: (Project & { github: string; live?: string })[] = [
     size: '553 KB',
     description: 'A unconventional retro style portfolio with a few personal twists!',
     tags: ['React', 'Tailwind', 'TypeScript'],
-    github: 'https://github.com/Roya9022/roya-profile',
+    github: `${GITHUB_LINK}roya-profile`,
   },
   {
     id: 1,
@@ -20,8 +21,8 @@ const projects: (Project & { github: string; live?: string })[] = [
     size: '38.2 MB',
     description: 'A centralized platform for discovering and supporting charitable causes.',
     tags: ['Next.js', 'Tailwind', 'TypeScript'],
-    github: 'https://github.com/Roya9022/donation-app',
-    live: 'https://donation-app-nu.vercel.app/home',
+    github: `${GITHUB_LINK}donation-app`,
+    live: DONATION_APP_LINK_LIVE,
   },
   {
     id: 2,
@@ -30,7 +31,7 @@ const projects: (Project & { github: string; live?: string })[] = [
     size: '218 KB',
     description: 'A digital healthcare management platform dashboard visualizing patient vitals and data.',
     tags: ['React', 'Tailwind', 'TypeScript'],
-    github: 'https://github.com/Roya9022/healthcare-dashboard',
+    github: `${GITHUB_LINK}healthcare-dashboard`,
   },
 ];
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { RetroFieldset, RetroButton } from '@/shared';
+import { GITHUB_LINK, LINKEDIN_LINK, MY_EMAIL } from '@/constants/links';
 
 interface ContactItemProps {
   imageName: string;
@@ -27,26 +28,15 @@ const ContactMe: React.FC = () => {
     <div className='flex-1 overflow-auto p-1'>
       <RetroFieldset className='bg-[#C0C0C0]'>
         <div className='flex flex-col gap-3 md:gap-4 mb-4'>
-          <ContactItem
-            imageName='email.png'
-            label='Email'
-            value='azemiroya@gmail.com'
-            href='mailto:azemiroya@gmail.com'
-          />
+          <ContactItem imageName='email.png' label='Email' value='azemiroya@gmail.com' href={`mailto:${MY_EMAIL}`} />
           <ContactItem
             imageName='linkedin.png'
             label='LinkedIn'
-            value='linkedin.com/in/roya-azemi/'
-            href='https://www.linkedin.com/in/roya-azemi/'
+            value={LINKEDIN_LINK}
+            href={LINKEDIN_LINK}
             target='_blank'
           />
-          <ContactItem
-            imageName='github.png'
-            label='GitHub'
-            value='github.com/Roya9022'
-            href='https://github.com/Roya9022'
-            target='_blank'
-          />
+          <ContactItem imageName='github.png' label='GitHub' value={GITHUB_LINK} href={GITHUB_LINK} target='_blank' />
         </div>
         <div className='system-log-footer text-[10px]'>*** Status: Online ***</div>
       </RetroFieldset>

@@ -44,12 +44,6 @@ export default function App() {
     icon: MODAL_DATA[id]?.icon || '📁',
   }));
 
-  const handleShutdown = () => {
-    if (confirm('Are you sure you want to shut down?')) {
-      window.location.href = 'https://github.com/Roya9022';
-    }
-  };
-
   return (
     <div className='min-h-screen bg-linear-to-br from-sky-500 via-indigo-400 to-purple-400 relative font-mono flex flex-col overflow-hidden pb-1'>
       <Background />
@@ -67,7 +61,7 @@ export default function App() {
           ))}
         </div>
         <IntroNotepad />
-        {isStartMenuOpen && <StartMenu onShutdown={handleShutdown} />}
+        {isStartMenuOpen && <StartMenu />}
         {openWindowIds.map((id) => {
           const config = MODAL_DATA[id];
           if (!config) return null;
@@ -115,9 +109,8 @@ export default function App() {
       <div className='relative z-200'>
         <Taskbar
           windows={taskbarWindows}
-          // Pass the toggle function to your Taskbar component
           onStartClick={(e: React.MouseEvent) => {
-            e.stopPropagation(); // Stops the 'window click' effect from closing it immediately
+            e.stopPropagation();
             setIsStartMenuOpen(!isStartMenuOpen);
           }}
           onClickWindow={(id) => {
