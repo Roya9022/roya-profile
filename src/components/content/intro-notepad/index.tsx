@@ -67,7 +67,7 @@ const IntroNotepad: React.FC = () => {
         left: 0,
         top: 0,
       }}>
-      <div className='bg-[#C0C0C0] p-0.5 retro-outset flex flex-col'>
+      <div className='bg-[#C0C0C0] p-0.5 retro-outset flex flex-col shadow-xl'>
         <div
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
@@ -75,33 +75,37 @@ const IntroNotepad: React.FC = () => {
           className={`bg-linear-to-r from-violet-400 to-sky-400 px-2 py-1 flex justify-between items-center ${
             isMobile ? 'cursor-default' : 'cursor-move'
           } touch-none`}>
-          <div className='flex items-center gap-2 pointer-events-none text-white font-bold text-xs select-none'>
+          <div className='flex items-center gap-2 pointer-events-none text-white font-bold text-[10px] md:text-xs select-none uppercase tracking-wider'>
             <span>📝</span> Untitled - Notepad
           </div>
           <div className='flex gap-1'>
-            <TitleBarButton Icon={Minus} onClick={() => console.log('minimize')} />
-            <TitleBarButton Icon={Square} onClick={() => console.log('maximize')} />
+            <TitleBarButton Icon={Minus} />
+            <TitleBarButton Icon={Square} />
             <TitleBarButton Icon={X} className='ml-0.5' />
           </div>
         </div>
-        <div className='m-1 p-3 md:p-5 font-mono text-xs sm:text-sm md:text-base h-full retro-inset relative min-h-[200px]'>
-          {windowWidth > 404 && (
+        <div className='m-1 p-4 md:p-6 font-mono text-xs sm:text-sm md:text-base h-full retro-inset relative min-h-55 bg-white'>
+          {windowWidth > 345 && (
             <img
               src='/me.png'
               alt='Roya Azemi'
-              className='absolute top-2 right-2 w-20 h-20 md:w-25 md:h-25 lg:w-35 lg:h-35 object-contain'
+              className='absolute top-2 right-2 w-20 h-20 md:w-28 md:h-28 lg:w-35 lg:h-35 object-contain [image-rendering:pixelated]'
             />
           )}
-          {lines.map((line, index) => (
-            <p key={index} className='mb-1 md:mb-2 text-black'>
-              {line}
-            </p>
-          ))}
-          <div className='flex items-end flex-wrap'>
-            <p className='inline text-black'>Feel free to browse my desktop! :D</p>
-            <span
-              className={`ml-1 inline-block h-3 w-2 mb-0.5 md:h-5 md:w-2 bg-black ${!cursorVisible ? 'invisible' : ''}`}
-            />
+          <div className='relative z-10'>
+            {lines.map((line, index) => (
+              <p key={index} className='mb-2 md:mb-3 text-black leading-tight'>
+                {line}
+              </p>
+            ))}
+            <div className='flex items-end flex-wrap mt-9'>
+              <p className='inline text-black'>Feel free to browse my desktop! :D</p>
+              <span
+                className={`ml-1 inline-block h-3 w-2 mb-0.5 md:h-5 md:w-2 bg-black ${
+                  !cursorVisible ? 'invisible' : ''
+                }`}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -24,10 +24,12 @@ const RetroButton: React.FC<RetroButtonProps> = ({
     px-4 py-1.5 bg-[#C0C0C0] font-bold border-2
     border-t-white border-l-white border-b-[#000000] border-r-[#000000] 
     shadow-[inset_-1px_-1px_0_0_#808080,inset_1px_1px_0_0_#DFDFDF] 
-    active:border-t-[#000000] active:border-l-[#000080] active:border-b-white active:border-r-white 
+    active:border-t-[#000000] active:border-l-[#808080] active:border-b-white active:border-r-white 
     active:shadow-[inset_1px_1px_0_0_#808080]
+    active:translate-x-[1px] active:translate-y-[1px]
     hover:bg-[#DFDFDF] focus:outline-dotted focus:outline-1 focus:outline-black focus:-outline-offset-4
     transition-none cursor-pointer whitespace-nowrap
+    text-sm md:text-base select-none touch-manipulation min-h-[32px]
   `;
 
   const combinedStyles = `${baseStyles} ${className}`;

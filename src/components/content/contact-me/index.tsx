@@ -1,5 +1,6 @@
 import React from 'react';
 import { RetroFieldset, RetroButton } from '@/shared';
+import { GITHUB_LINK, LINKEDIN_LINK, MY_EMAIL } from '@/constants/links';
 
 interface ContactItemProps {
   imageName: string;
@@ -11,44 +12,33 @@ interface ContactItemProps {
 
 const ContactItem: React.FC<ContactItemProps> = ({ imageName, label, value, href, target }) => (
   <RetroButton href={href} target={target} className='w-full justify-start! p-2!'>
-    <div className='retro-icon-recessed'>
-      <img src={`/contact-me/${imageName}`} alt={label} />
+    <div className='retro-icon-recessed shrink-0'>
+      <img src={`/contact-me/${imageName}`} alt={label} className='w-6 h-6 md:w-8 md:h-8' />
     </div>
 
-    <div className='text-left ml-4'>
-      <div className='uppercase text-gray-600 leading-none mb-0.5'>{label}</div>
-      <div className='font-medium'>{value}</div>
+    <div className='text-left ml-3 md:ml-4 overflow-hidden'>
+      <div className='uppercase text-gray-600 text-[9px] md:text-[10px] leading-none mb-0.5'>{label}</div>
+      <div className='font-medium text-xs md:text-sm truncate'>{value}</div>
     </div>
   </RetroButton>
 );
 
 const ContactMe: React.FC = () => {
   return (
-    <div className='flex-1 overflow-auto'>
+    <div className='flex-1 overflow-auto p-1'>
       <RetroFieldset className='bg-[#C0C0C0]'>
-        <div className='flex flex-col gap-4 mb-4'>
-          <ContactItem
-            imageName='email.png'
-            label='Email'
-            value='azemiroya@gmail.com'
-            href='mailto:azemiroya@gmail.com'
-          />
+        <div className='flex flex-col gap-3 md:gap-4 mb-4'>
+          <ContactItem imageName='email.png' label='Email' value='azemiroya@gmail.com' href={`mailto:${MY_EMAIL}`} />
           <ContactItem
             imageName='linkedin.png'
             label='LinkedIn'
-            value='linkedin.com/in/roya-azemi/'
-            href='https://www.linkedin.com/in/roya-azemi/'
+            value={LINKEDIN_LINK}
+            href={LINKEDIN_LINK}
             target='_blank'
           />
-          <ContactItem
-            imageName='github.png'
-            label='GitHub'
-            value='github.com/Roya9022'
-            href='https://github.com/Roya9022'
-            target='_blank'
-          />
+          <ContactItem imageName='github.png' label='GitHub' value={GITHUB_LINK} href={GITHUB_LINK} target='_blank' />
         </div>
-        <div className='system-log-footer'>*** Status: Online ***</div>
+        <div className='system-log-footer text-[10px]'>*** Status: Online ***</div>
       </RetroFieldset>
     </div>
   );

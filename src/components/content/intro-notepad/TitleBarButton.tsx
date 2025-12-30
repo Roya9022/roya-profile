@@ -10,12 +10,12 @@ const TitleBarButton: React.FC<TitleBarButtonProps> = ({ Icon, onClick, classNam
     <button
       onClick={onClick}
       className={`
-      w-4 h-4 md:w-5 md:h-5 bg-[#C0C0C0] flex items-center justify-center 
+      w-5 h-5 md:w-5 md:h-5 bg-[#C0C0C0] flex items-center justify-center 
       ${WIN_OUTSET} 
       active:shadow-none active:translate-x-px active:translate-y-px
       ${className}
     `}>
-      <Icon className='w-2 h-2 md:w-3 md:h-3' />
+      <Icon className='w-2.5 h-2.5 md:w-3 md:h-3 text-black' />
     </button>
   );
 };

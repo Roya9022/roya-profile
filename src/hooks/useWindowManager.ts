@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Position } from '@/types';
 
 export const useWindowManager = () => {
@@ -8,15 +8,41 @@ export const useWindowManager = () => {
   const [focusedId, setFocusedId] = useState<string | null>(null);
   const [windowPositions, setWindowPositions] = useState<Record<string, Position>>({});
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setWindowPositions((prev) => {
+          const newPositions = { ...prev };
+          openWindowIds.forEach((id) => {
+            if (!newPositions[id] || newPositions[id].x < 50) {
+              newPositions[id] = {
+                x: window.innerWidth / 2 - 350,
+                y: 60,
+              };
+            }
+          });
+          return newPositions;
+        });
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [openWindowIds]);
+
   const openWindow = (id: string) => {
     if (!openWindowIds.includes(id)) {
       const offset = openWindowIds.length * 25;
+      const isMobile = window.innerWidth < 1024;
+
       setWindowPositions((prev) => ({
         ...prev,
-        [id]: {
-          x: window.innerWidth / 2 - 350 + offset,
-          y: 30 + offset,
-        },
+        [id]: isMobile
+          ? { x: 0, y: 0 }
+          : {
+              x: Math.max(20, window.innerWidth / 2 - 350 + offset),
+              y: 8 + offset,
+            },
       }));
       setOpenWindowIds((prev) => [...prev, id]);
     }

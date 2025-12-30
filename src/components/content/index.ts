@@ -8,4 +8,4 @@ export { default as MyProjectsFooter } from './my-projects';
 export { default as PaintModal } from './paint-modal';
 export { default as RecycleBin } from './recycle-bin';
 export { default as Resume } from './resume';
-export { default as TitleBarButton } from './intro-notepad/components/TitleBarButton';
+export { default as TitleBarButton } from './intro-notepad/TitleBarButton';
