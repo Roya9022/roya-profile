@@ -5,7 +5,7 @@ const AboutMe: React.FC = () => {
   const fieldsetWrapperClass = 'mb-8 [&>legend]:text-violet-500 [&>legend]:text-xs md:[&>legend]:text-sm';
 
   return (
-    <div className='bg-[#C0C0C0] max-h-125 overflow-y-auto p-4 sm:p-6 scrollbar-retro shadow-[inset_1px_1px_0_0_#000]'>
+    <div className='bg-[#C0C0C0] max-h-125 overflow-y-auto p-4 sm:p-6'>
       <h2 className='text-base md:text-lg font-bold text-sky-500 mb-6 uppercase'>About Me</h2>
 
       <RetroFieldset label='User Identification:' className={fieldsetWrapperClass}>

@@ -36,7 +36,7 @@ export const MODAL_DATA: Record<
     icon: '📝',
     headerColor: 'from-blue-400 to-gray-500',
     content: <Resume />,
-    scrollable: false,
+    // scrollable: false,
   },
   paint: {
     title: 'Untitled - Paint',
