@@ -87,7 +87,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
 
   if (isMinimized) return null;
 
-  const mobileCenterClasses = isMobile && !isMaximized ? 'flex items-start justify-center pt-10 pb-20' : '';
+  const mobileCenterClasses = isMobile && !isMaximized ? 'flex items-start justify-center pt-6 pb-20' : '';
 
   return (
     <div
@@ -106,7 +106,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
               isMaximized
                 ? 'fixed inset-0 w-screen h-dvh'
                 : isMobile
-                ? 'w-[95vw] max-h-[70dvh]'
+                ? 'w-[95vw] max-h-[75dvh]'
                 : `${width} ${height || 'h-fit'}`
             }
           `}>
@@ -141,7 +141,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
               m-1 flex-1 bg-white ${contentInset} 
               ${noPadding ? 'p-0' : 'p-4 md:p-6'} 
               ${scrollable ? 'overflow-y-auto' : 'overflow-hidden'} 
-              scrollbar-retro
+              scrollbar-retro min-h-0
             `}>
             {children}
           </div>
