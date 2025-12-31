@@ -87,7 +87,7 @@ const IntroNotepad: React.FC = () => {
         <div className='m-1 p-4 md:p-6 font-mono text-xs sm:text-sm md:text-base h-full retro-inset relative min-h-55 bg-white'>
           {windowWidth > 345 && (
             <img
-              src='/me.png'
+              src='/avatars/me.png'
               alt='Roya Azemi'
               className='absolute top-2 right-2 w-20 h-20 md:w-28 md:h-28 lg:w-35 lg:h-35 object-contain [image-rendering:pixelated]'
             />
