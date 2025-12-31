@@ -25,7 +25,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ imageName, label, value, href
 
 const ContactMe: React.FC = () => {
   return (
-    <div className='flex-1 overflow-auto p-1'>
+    <div className='flex-1 overflow-auto'>
       <RetroFieldset className='bg-[#C0C0C0]'>
         <div className='flex flex-col gap-3 md:gap-4 mb-4'>
           <ContactItem imageName='email.png' label='Email' value='azemiroya@gmail.com' href={`mailto:${MY_EMAIL}`} />
