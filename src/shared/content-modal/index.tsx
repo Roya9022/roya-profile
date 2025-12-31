@@ -106,7 +106,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
               isMaximized
                 ? 'fixed inset-0 w-screen h-dvh'
                 : isMobile
-                ? 'w-[95vw] max-h-[75dvh]'
+                ? 'w-[95vw] max-h-[80dvh]'
                 : `${width} ${height || 'h-fit'}`
             }
           `}>
