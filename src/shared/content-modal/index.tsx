@@ -31,7 +31,6 @@ const ContentModal: React.FC<ContentModalProps> = ({
   children,
   headerColor = 'from-violet-400 to-sky-400',
   width = 'md:w-[700px]',
-  height,
   position,
   onDrag,
   onFocus,
@@ -39,6 +38,7 @@ const ContentModal: React.FC<ContentModalProps> = ({
   noPadding = false,
   icon = '📁',
   scrollable = true,
+  // height,
 }) => {
   const [isMobile, setIsMobile] = useState(() => (typeof window !== 'undefined' ? window.innerWidth < 1024 : false));
 
@@ -101,15 +101,15 @@ const ContentModal: React.FC<ContentModalProps> = ({
         }}>
         <div
           className={`
-            bg-[#C0C0C0] flex flex-col p-0.5 ${windowOutset}
-            ${
-              isMaximized
-                ? 'fixed inset-0 w-screen h-dvh'
-                : isMobile
-                ? 'w-[95vw] max-h-[80dvh]'
-                : `${width} ${height || 'h-fit'}`
-            }
-          `}>
+    bg-[#C0C0C0] flex flex-col p-0.5 ${windowOutset}
+    ${
+      isMaximized
+        ? 'fixed inset-0 w-screen max-h-[calc(100svh-40px)]'
+        : isMobile
+        ? 'w-[95vw] max-h-[80dvh]'
+        : `${width} max-h-[85dvh]`
+    }
+  `}>
           <div
             onPointerDown={handlePointerDown}
             onPointerMove={handlePointerMove}

@@ -38,7 +38,7 @@ const Resume: React.FC = () => {
   return (
     <div className='bg-[#C0C0C0] h-full flex flex-col font-mono text-black border border-gray-500'>
       <div className='p-2.5 md:p-6 flex-1 overflow-auto scrollbar-retro'>
-        <section className='space-y-1 mb-6'>
+        <section className='space-y-1 mb-5 md:mb-3'>
           <div className='flex items-end mb-1.5 md:mb-6 gap-4 justify-between'>
             <h2 className='text-sm md:text-lg font-bold uppercase text-sky-500'>RESUME</h2>
             <RetroButton
@@ -54,13 +54,11 @@ const Resume: React.FC = () => {
           <p className='text-gray-700 text-xs md:text-sm'>+1 484-843-3993 | Fruitland, MD</p>
           <p className='text-gray-700 text-xs md:text-sm'>azemiroya@gmail.com | linkedin.com/in/roya-azemi/</p>
         </section>
-
         <p className='leading-relaxed mb-8 text-xs md:text-sm text-gray-900'>
           Front-End Software Engineer with 4+ years of experience building scalable, high-traffic web applications used
           by millions of users. Specialized in React and TypeScript, with strong expertise in performance optimization,
           design systems, and building reusable, maintainable front-end architectures for mobile and desktop platforms.
         </p>
-
         <RetroFieldset label='Experience' className={fieldsetWrapperClass}>
           <ResumeItem
             title='Front-End Software Engineer'
@@ -104,7 +102,6 @@ const Resume: React.FC = () => {
             ]}
           />
         </RetroFieldset>
-
         <RetroFieldset label='Personal Projects' className={fieldsetWrapperClass}>
           <ResumeItem
             title='Charity Finder - Next.js, TypeScript, Material-UI'
