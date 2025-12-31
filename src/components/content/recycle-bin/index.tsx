@@ -55,7 +55,7 @@ const RecycleBin: React.FC = () => {
             <div className='flex flex-col gap-3 animate-in fade-in duration-200'>
               <img src={selectedItem.image} className='w-16 h-16 [image-rendering:pixelated]' alt='selected' />
               <div>
-                <p className='text-xs font-bold wrap-break-word'>{selectedItem.text}</p>
+                <p className='text-xs font-bold wrap-break-word text-nowrap'>{selectedItem.text}</p>
                 <p className='text-[10px] text-gray-600 mt-2'>Size: {selectedItem.size}</p>
                 <p className='text-[10px] text-gray-600'>Modified: {selectedItem.date}</p>
               </div>
