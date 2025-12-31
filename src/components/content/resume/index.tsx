@@ -36,12 +36,11 @@ const ResumeItem: React.FC<ResumeItemProps> = ({ title, company, period, descrip
 
 const Resume: React.FC = () => {
   return (
-    <div className='bg-[#C0C0C0] h-full flex flex-col font-mono text-black'>
-      {/* This wrapper mimics the MyComputer logic to enable scrolling */}
-      <div className='p-4 md:p-6 flex-1 overflow-auto scrollbar-retro'>
+    <div className='bg-[#C0C0C0] h-full flex flex-col font-mono text-black border border-gray-500'>
+      <div className='p-2.5 md:p-6 flex-1 overflow-auto scrollbar-retro'>
         <section className='space-y-1 mb-6'>
-          <div className='flex items-end mb-4 gap-4 justify-between'>
-            <h2 className='text-lg md:text-xl font-bold uppercase text-sky-500'>RESUME</h2>
+          <div className='flex items-end mb-1.5 md:mb-6 gap-4 justify-between'>
+            <h2 className='text-sm md:text-lg font-bold uppercase text-sky-500'>RESUME</h2>
             <RetroButton
               href='/assets/Roya_Azemi_Resume.pdf'
               target='_blank'

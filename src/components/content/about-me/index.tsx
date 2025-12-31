@@ -2,12 +2,11 @@ import React from 'react';
 import { RetroFieldset } from '@/shared';
 
 const AboutMe: React.FC = () => {
-  const fieldsetWrapperClass = 'mb-8 [&>legend]:text-violet-500 [&>legend]:text-xs md:[&>legend]:text-sm';
+  const fieldsetWrapperClass = 'mb-4 md:mb-8 [&>legend]:text-violet-500 [&>legend]:text-xs md:[&>legend]:text-sm';
 
   return (
-    <div className='bg-[#C0C0C0] max-h-125 overflow-y-auto p-4 sm:p-6'>
-      <h2 className='text-base md:text-lg font-bold text-sky-500 mb-6 uppercase'>About Me</h2>
-
+    <div className='border border-gray-500 bg-[#C0C0C0] max-h-125 overflow-y-auto p-4 sm:p-6'>
+      <h2 className='text-base md:text-lg font-bold text-sky-500 mb-3 md:mb-6 uppercase'>About Me</h2>
       <RetroFieldset label='User Identification:' className={fieldsetWrapperClass}>
         <p className='text-gray-800 text-xs md:text-sm leading-relaxed'>
           My name is Roya and I'm a front-end software engineer with a passion for creating engaging and functional web

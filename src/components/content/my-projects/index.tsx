@@ -40,7 +40,7 @@ const fieldsetWrapperClass = 'mb-2 md:mb-4 [&>legend]:text-violet-500 [&>legend]
 const MyProjects: React.FC = () => {
   return (
     <div className='flex flex-col h-full font-mono'>
-      <div className='flex-1 bg-[#C0C0C0] overflow-y-auto p-2 sm:p-6 scrollbar-retro shadow-[inset_1px_1px_0_0_#000]'>
+      <div className='flex-1 bg-[#C0C0C0] overflow-y-auto p-2.5 md:p-6 scrollbar-retro border border-gray-500'>
         <h2 className='text-sm md:text-lg font-bold text-sky-500 mb-3 md:mb-6 uppercase tracking-tight'>MY PROJECTS</h2>
         <div className='space-y-3 md:space-y-6'>
           {projects.map((project) => (

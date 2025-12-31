@@ -15,7 +15,6 @@ const ContactItem: React.FC<ContactItemProps> = ({ imageName, label, value, href
     <div className='retro-icon-recessed shrink-0'>
       <img src={`/contact-me/${imageName}`} alt={label} className='w-6 h-6 md:w-8 md:h-8' />
     </div>
-
     <div className='text-left ml-3 md:ml-4 overflow-hidden'>
       <div className='uppercase text-gray-600 text-[9px] md:text-[10px] leading-none mb-0.5'>{label}</div>
       <div className='font-medium text-xs md:text-sm truncate'>{value}</div>
@@ -26,7 +25,7 @@ const ContactItem: React.FC<ContactItemProps> = ({ imageName, label, value, href
 const ContactMe: React.FC = () => {
   return (
     <div className='flex-1 overflow-auto'>
-      <RetroFieldset className='bg-[#C0C0C0]'>
+      <RetroFieldset className='bg-[#C0C0C0] p-2.5 md:p-6'>
         <div className='flex flex-col gap-3 md:gap-4 mb-4'>
           <ContactItem imageName='email.png' label='Email' value='azemiroya@gmail.com' href={`mailto:${MY_EMAIL}`} />
           <ContactItem
