@@ -12,5 +12,11 @@
     "thanksLabel": "Session Summary",
     "thanks": "Thank you for taking the time to look through my profile. I hope you enjoy exploring my work as much as I enjoy creating it!",
     "log": "*** Thread Status: Listening for Career Opportunities ***"
+  },
+  "contactMe": {
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "log": "*** Status: Online ***"
   }
 }

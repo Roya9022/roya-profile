@@ -1,6 +1,7 @@
 import React from 'react';
 import { RetroFieldset, RetroButton } from '@/shared';
 import { GITHUB_LINK, LINKEDIN_LINK, MY_EMAIL } from '@/constants/links';
+import text from '@/content/text.json';
 
 interface ContactItemProps {
   imageName: string;
@@ -23,21 +24,29 @@ const ContactItem: React.FC<ContactItemProps> = ({ imageName, label, value, href
 );
 
 const ContactMe: React.FC = () => {
+  const contactMeText = text.contactMe;
+
   return (
     <div className='flex-1 overflow-auto'>
       <RetroFieldset className='bg-[#C0C0C0] p-2.5 md:p-6'>
         <div className='flex flex-col gap-3 md:gap-4 mb-4'>
-          <ContactItem imageName='email.png' label='Email' value='azemiroya@gmail.com' href={`mailto:${MY_EMAIL}`} />
+          <ContactItem imageName='email.png' label={contactMeText.email} value={MY_EMAIL} href={`mailto:${MY_EMAIL}`} />
           <ContactItem
             imageName='linkedin.png'
-            label='LinkedIn'
+            label={contactMeText.linkedin}
             value={LINKEDIN_LINK}
             href={LINKEDIN_LINK}
             target='_blank'
           />
-          <ContactItem imageName='github.png' label='GitHub' value={GITHUB_LINK} href={GITHUB_LINK} target='_blank' />
+          <ContactItem
+            imageName='github.png'
+            label={contactMeText.github}
+            value={GITHUB_LINK}
+            href={GITHUB_LINK}
+            target='_blank'
+          />
         </div>
-        <div className='system-log-footer text-[10px]'>*** Status: Online ***</div>
+        <div className='system-log-footer text-[10px]'>{contactMeText.log}</div>
       </RetroFieldset>
     </div>
   );
