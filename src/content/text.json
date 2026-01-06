@@ -28,5 +28,15 @@
     "bin": "Recycle Bin",
     "player": "Vibes Player",
     "myComputer": "My Computer"
+  },
+  "introNotepad": {
+    "hello": "Hello, World!",
+    "roya": "I'm Roya Azemi",
+    "frontend": "a Front-End Software Engineer",
+    "maryland": "based in Maryland",
+    "experience": "with 4+ years of experience.",
+    "untitledNotepad": "Untitled - Notepad",
+    "myName": "Roya Azemi",
+    "browse": "Feel free to browse my desktop! :D"
   }
 }

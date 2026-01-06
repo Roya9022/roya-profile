@@ -2,8 +2,10 @@ import { useState, useEffect } from 'react';
 import { Minus, Square, X } from 'lucide-react';
 import type { Position } from '@/types';
 import { TitleBarButton } from '@/components/content';
+import text from '@/content/text.json';
 
 const IntroNotepad: React.FC = () => {
+  const introNotepadText = text.introNotepad;
   const [isMobile, setIsMobile] = useState(true);
   const [position, setPosition] = useState<Position>({ x: 100, y: 100 });
   const [isDragging, setIsDragging] = useState(false);
@@ -52,11 +54,11 @@ const IntroNotepad: React.FC = () => {
   };
 
   const lines = [
-    'Hello, World!',
-    "I'm Roya Azemi,",
-    'a Front-End Software Engineer',
-    'based in Maryland',
-    'with 4+ years of experience.',
+    introNotepadText.hello,
+    `${introNotepadText.roya},`,
+    introNotepadText.frontend,
+    introNotepadText.maryland,
+    introNotepadText.experience,
   ];
 
   return (
@@ -76,7 +78,7 @@ const IntroNotepad: React.FC = () => {
             isMobile ? 'cursor-default' : 'cursor-move'
           } touch-none`}>
           <div className='flex items-center gap-2 pointer-events-none text-white font-bold text-[10px] md:text-xs select-none uppercase tracking-wider'>
-            <span>📝</span> Untitled - Notepad
+            <span>📝</span> {introNotepadText.untitledNotepad}
           </div>
           <div className='flex gap-1'>
             <TitleBarButton Icon={Minus} />
@@ -88,7 +90,7 @@ const IntroNotepad: React.FC = () => {
           {windowWidth > 345 && (
             <img
               src='/avatars/me.png'
-              alt='Roya Azemi'
+              alt={introNotepadText.myName}
               className='absolute top-2 right-2 w-20 h-20 md:w-28 md:h-28 lg:w-35 lg:h-35 object-contain [image-rendering:pixelated]'
             />
           )}
@@ -99,7 +101,7 @@ const IntroNotepad: React.FC = () => {
               </p>
             ))}
             <div className='flex items-end flex-wrap mt-9'>
-              <p className='inline text-black'>Feel free to browse my desktop! :D</p>
+              <p className='inline text-black'>{introNotepadText.browse}</p>
               <span
                 className={`ml-1 inline-block h-3 w-2 mb-0.5 md:h-5 md:w-2 bg-black ${
                   !cursorVisible ? 'invisible' : ''
