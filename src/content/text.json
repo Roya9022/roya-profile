@@ -18,5 +18,15 @@
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "log": "*** Status: Online ***"
+  },
+  "data": {
+    "myProjects": "C:\\My Projects",
+    "aboutMe": "C:\\About Me",
+    "contactMe": "C:\\Contact Me",
+    "resume": "C:\\Resume.txt",
+    "untitledPaint": "Untitled - Paint",
+    "bin": "Recycle Bin",
+    "player": "Vibes Player",
+    "myComputer": "My Computer"
   }
 }
