@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Play, Pause, SkipBack, SkipForward, Volume2 } from 'lucide-react';
 import { RetroButton } from '@/shared';
-import { tracks } from '@/constants/songs';
+import { tracks } from '@/constants/tracks';
 import text from '@/content/text.json';
 
 const MusicPlayer: React.FC = () => {
