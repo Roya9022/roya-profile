@@ -1,25 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { Play, Pause, SkipBack, SkipForward, Volume2 } from 'lucide-react';
 import { RetroButton } from '@/shared';
-
-interface Track {
-  title: string;
-  src?: string;
-  playable: boolean;
-}
-
-const tracks: Track[] = [
-  { title: 'Lofi Chill - DELOSound', src: '/music/lofi1.mp3', playable: true },
-  { title: 'Sakura - lofidreams', src: '/music/lofi2.mp3', playable: true },
-  { title: 'Snowy Window - Turning Pages', src: '/music/lofi3.mp3', playable: true },
-  { title: 'Semi-Charmed Life – Third Eye Blind', playable: false },
-  { title: 'Falls Apart – Sugar Ray', playable: false },
-  { title: 'No Scrubs – TLC', playable: false },
-];
+import { tracks } from '@/constants/songs';
+import text from '@/content/text.json';
 
 const MusicPlayer: React.FC = () => {
+  const musicPlayerText = text.musicPlayer;
+
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+
   const [currentTrack, setCurrentTrack] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -33,8 +23,7 @@ const MusicPlayer: React.FC = () => {
   useEffect(() => {
     if (!videoRef.current) return;
     if (isPlaying) {
-      videoRef.current.play().catch(() => {
-      });
+      videoRef.current.play().catch(() => {});
     } else {
       videoRef.current.pause();
     }
@@ -100,7 +89,7 @@ const MusicPlayer: React.FC = () => {
           />
           <div className='relative z-10 p-2 sm:p-3'>
             <div className='text-white text-[9px] sm:text-[10px] tracking-widest uppercase mb-0.5 opacity-80'>
-              Now Playing
+              {musicPlayerText.nowPlaying}
             </div>
             <div className='text-white text-xs sm:text-base truncate font-bold uppercase drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]'>
               {tracks[currentTrack].title}
@@ -149,7 +138,7 @@ const MusicPlayer: React.FC = () => {
       </div>
       <div className='w-full lg:w-72 flex flex-col shrink-0'>
         <div className='bg-[#808080] text-white text-[10px] px-2 py-1 font-bold uppercase tracking-wider'>
-          Tracklist
+          {musicPlayerText.nowPlaying}
         </div>
         <div className={`flex-1 bg-white overflow-y-auto max-h-48 lg:max-h-none ${contentInset} scrollbar-retro`}>
           {tracks.map((track, index) => {

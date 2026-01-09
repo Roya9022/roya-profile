@@ -38,5 +38,15 @@
     "untitledNotepad": "Untitled - Notepad",
     "myName": "Roya Azemi",
     "browse": "Feel free to browse my desktop! :D"
+  },
+  "musicPlayer": {
+    "trackOne": "Lofi Chill - DELOSound",
+    "trackTwo": "Sakura - lofidreams",
+    "trackThree": "Snowy Window - Turning Pages",
+    "trackFour": "Semi-Charmed Life - Third Eye Blind (copyrighted)",
+    "trackFive": "Falls Apart - Sugar Ray (copyrighted)",
+    "trackSix": "No Scrubs - TLC (copyrighted)",
+    "nowPlaying": "Now Playing",
+    "tracks": "Track List"
   }
 }
