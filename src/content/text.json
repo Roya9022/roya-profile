@@ -48,5 +48,22 @@
     "trackSix": "No Scrubs - TLC (copyrighted)",
     "nowPlaying": "Now Playing",
     "tracks": "Track List"
+  },
+  "myComputer": {
+    "system": "System",
+    "registered": "Registered to",
+    "specs": "Computer Specs",
+    "myComputer": "My Computer",
+    "os": "Nostalgia OS (Roya Special Edition)",
+    "version": "Version 2026.1.0",
+    "pc": "ROYA-PC",
+    "pcSpecs": "2026-FRONTEND-ENGINEER",
+    "cpu": "CPU",
+    "cpuDesc": "Frontend Engineer @ 233MHz",
+    "ram": "RAM",
+    "ramSpec": "32MB Problem-Solving",
+    "gpu": "GPU",
+    "gpuSpec": "React Accelerator",
+    "ok": "ok"
   }
 }
