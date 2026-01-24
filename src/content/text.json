@@ -65,5 +65,27 @@
     "gpu": "GPU",
     "gpuSpec": "React Accelerator",
     "ok": "ok"
+  },
+  "myProjects": {
+    "retroName": "Retro Portfolio",
+    "retroDesc": "A unconventional retro style portfolio with a few personal twists!",
+    "retroSize": "19.8 MB",
+    "react": "React",
+    "tailwind": "Tailwind",
+    "typescript": "TypeScript",
+    "profileName": "roya-profile",
+    "donationName": "Donation App (in progress)",
+    "donationSize": "38.2 MB",
+    "donationDesc": "A centralized platform for discovering and supporting charitable causes.",
+    "next": "Next.js",
+    "healthcareName": "Healthcare Dashboard",
+    "healthcareSize": "218 KB",
+    "healthcareDesc": "A digital healthcare dashboard visualizing patient vitals and data.",
+    "total": "Total",
+    "localDisk": "Local Disk (C:)",
+    "object": "object",
+    "MyProjects": "My Projects",
+    "github": "GitHub",
+    "live": "Live"
   }
 }

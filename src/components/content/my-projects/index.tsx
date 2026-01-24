@@ -1,47 +1,19 @@
-import React from 'react';
-import type { Project } from '@/types';
-import { getTotalSize } from '../../../hooks/getTotalSize';
 import { RetroFieldset, RetroButton } from '@/shared';
-import { GITHUB_LINK, DONATION_APP_LINK_LIVE } from '@/constants/links';
-
-const projects: (Project & { github: string; live?: string })[] = [
-  {
-    id: 0,
-    name: 'Retro Portfolio',
-    iconSrc: '/my-projects/portfolio.png',
-    size: '19.8 MB',
-    description: 'A unconventional retro style portfolio with a few personal twists!',
-    tags: ['React', 'Tailwind', 'TypeScript'],
-    github: `${GITHUB_LINK}roya-profile`,
-  },
-  {
-    id: 1,
-    name: 'Donation App (in progress)',
-    iconSrc: '/my-projects/donation.png',
-    size: '38.2 MB',
-    description: 'A centralized platform for discovering and supporting charitable causes.',
-    tags: ['Next.js', 'Tailwind', 'TypeScript'],
-    github: `${GITHUB_LINK}donation-app`,
-    live: DONATION_APP_LINK_LIVE,
-  },
-  {
-    id: 2,
-    name: 'Healthcare Dashboard',
-    iconSrc: '/my-projects/healthcare.png',
-    size: '218 KB',
-    description: 'A digital healthcare dashboard visualizing patient vitals and data.',
-    tags: ['React', 'Tailwind', 'TypeScript'],
-    github: `${GITHUB_LINK}healthcare-dashboard`,
-  },
-];
+import { projects } from '@/constants/projects';
+import text from '@/content/text.json';
+import { getTotalSize } from '../../../hooks/getTotalSize';
 
 const fieldsetWrapperClass = 'mb-2 md:mb-4 [&>legend]:text-violet-500 [&>legend]:text-[10px] md:[&>legend]:text-sm';
 
 const MyProjects: React.FC = () => {
+  const myProjectsText = text.myProjects;
+
   return (
     <div className='flex flex-col h-full font-mono'>
       <div className='flex-1 bg-[#C0C0C0] overflow-y-auto p-2.5 md:p-6 scrollbar-retro border border-gray-500'>
-        <h2 className='text-sm md:text-lg font-bold text-sky-500 mb-3 md:mb-6 uppercase tracking-tight'>MY PROJECTS</h2>
+        <h2 className='text-sm md:text-lg font-bold text-sky-500 mb-3 md:mb-6 uppercase tracking-tight'>
+          {myProjectsText.MyProjects}
+        </h2>
         <div className='space-y-3 md:space-y-6'>
           {projects.map((project) => (
             <div key={project.id} className='group'>
@@ -65,7 +37,7 @@ const MyProjects: React.FC = () => {
                         target='_blank'
                         rel='noopener noreferrer'
                         className='text-[10px] md:text-sm h-6 md:h-8 px-2 md:px-4'>
-                        GitHub
+                        {myProjectsText.github}
                       </RetroButton>
                       {project.live && (
                         <RetroButton
@@ -77,7 +49,7 @@ const MyProjects: React.FC = () => {
                             <span className='absolute h-2 w-2 animate-ping rounded-full bg-emerald-500 opacity-75'></span>
                             <span className='relative h-1.5 w-1.5 rounded-full bg-emerald-600'></span>
                           </span>
-                          Live
+                          {myProjectsText.live}
                         </RetroButton>
                       )}
                     </div>
@@ -90,10 +62,14 @@ const MyProjects: React.FC = () => {
       </div>
       <div className='flex justify-between items-center text-[9px] md:text-sm text-gray-700 px-3 py-1 bg-[#C0C0C0] border-t-2 border-white shadow-[0_-1px_0_0_#808080]'>
         <div className='flex gap-2 md:gap-4'>
-          <span className='border-r border-gray-400 pr-2'>{projects.length} object(s)</span>
-          <span className='text-gray-500 italic hidden sm:inline'>Local Disk (C:)</span>
+          <span className='border-r border-gray-400 pr-2'>
+            {projects.length} {myProjectsText.object}(s)
+          </span>
+          <span className='text-gray-500 italic hidden sm:inline'>{myProjectsText.localDisk}</span>
         </div>
-        <span className='font-bold uppercase tracking-wider'>Total: {getTotalSize(projects)}</span>
+        <span className='font-bold uppercase tracking-wider'>
+          {myProjectsText.total}: {getTotalSize(projects)}
+        </span>
       </div>
     </div>
   );

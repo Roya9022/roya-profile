@@ -1,4 +1,3 @@
-import React from 'react';
 import { RetroFieldset } from '@/shared';
 import text from '@/content/text.json';
 

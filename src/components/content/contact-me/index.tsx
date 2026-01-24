@@ -1,4 +1,3 @@
-import React from 'react';
 import { RetroFieldset, RetroButton } from '@/shared';
 import { GITHUB_LINK, LINKEDIN_LINK, MY_EMAIL } from '@/constants/links';
 import text from '@/content/text.json';
